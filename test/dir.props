@@ -1,0 +1,42 @@
+<Project>
+  <Import Project="$(MSBuildThisFileDirectory)..\assembly.props" />
+  <PropertyGroup>
+    <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>true</AppendRuntimeIdentifierToOutputPath>
+
+    <!-- Versioning stuff -->
+    <IncludeFullFramework Condition="'$(IncludeFullFramework)' == ''">true</IncludeFullFramework>
+    <IncludeLatestFullFramework Condition="'$(IncludeLatestFullFramework)' == ''">false</IncludeLatestFullFramework>
+    <IncludeLatestCoreFramework Condition="'$(IncludeLatestCoreFramework)' == ''">false</IncludeLatestCoreFramework>
+    <IncludeLatestStandardFramework Condition="'$(IncludeLatestStandardFramework)' == ''">false</IncludeLatestStandardFramework>
+
+    <!-- Ignore nullable reference type warnings because we want to test agaist null arguments -->
+    <Nullable>disable</Nullable>
+
+    <MicrosoftTestSdkVersion>16.6.1</MicrosoftTestSdkVersion>
+    <MicrosoftTestAdapterVersion>2.1.1</MicrosoftTestAdapterVersion>
+    <MicrosoftTestFrameworkVersion>2.1.1</MicrosoftTestFrameworkVersion>
+    <CoverletCollectorVersion>1.2.1</CoverletCollectorVersion>
+    <CoverletMsBuildVersion>2.8.1</CoverletMsBuildVersion>
+  
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <DefineConstants>$(DefineConstants);TRACE;DEBUG</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <Optimize>true</Optimize>
+    <DefineConstants>$(DefineConstants);TRACE</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'CI|AnyCPU'">
+    <Optimize>true</Optimize>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>$(DefineConstants);TRACE</DefineConstants>
+    <NoWarn>$(NoWarn)</NoWarn>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+  </PropertyGroup>
+</Project>
