@@ -1,9 +1,7 @@
 namespace Verticular.Extensions
 {
   using System;
-  using System.Collections.Generic;
-  using System.Text;
-
+  using System.Linq;
 
   /// <summary>
   /// Contains utility methods that extend the <see cref="string" /> type regarding string content.
@@ -14,35 +12,76 @@ namespace Verticular.Extensions
   public static class StringContainsExtensions
   {
 
-    public static bool ContainsAny(this string value, IReadOnlyCollection<char> characters) =>
-      value.ContainsAny(StringComparer.CurrentCulture, characters);
+    /// <summary>
+    /// Returns a value indicating whether any of the specified characters occurs within this string.
+    /// </summary>
+    /// <param name="value">The current string.</param>
+    /// <param name="characters">The characters to seek.</param>
+    /// <returns><see langword="true"/> if any of the specified characters occurs within the string; otherwise, <see langword="false" />.</returns>
+    public static bool ContainsAny(this string value, params char[] characters) =>
+      value.ContainsAny(CharacterComparer.CurrentCulure, characters);
 
-    public static bool ContainsAny(this string value, StringComparer characterComparer, IReadOnlyCollection<char> characters)
+    /// <summary>
+    /// Returns a value indicating whether any of the specified characters occurs within this string.
+    /// </summary>
+    /// <param name="value">The current string.</param>
+    /// <param name="characters">The characters to seek.</param>
+    /// <param name="characterComparer">The comparer used to find characters.</param>
+    /// <returns><see langword="true"/> if any of the specified characters occurs within the string; otherwise, <see langword="false" />.</returns>
+    public static bool ContainsAny(this string value, CharacterComparer characterComparer, params char[] characters)
     {
       if (value.IsNullOrEmpty())
       {
         return false;
       }
 
-      throw new NotImplementedException();
-
-      for(var i = 0; i < value.Length; ++i)
+      if (characters is null)
       {
-        
+        throw new ArgumentNullException(nameof(characters));
       }
+
+      if (characters.Length == 0)
+      {
+        throw new ArgumentOutOfRangeException(nameof(characters), "There must be at least one character given to seek in the string.");
+      }
+
+      return characters.Any(c => value.Contains(c, characterComparer));
     }
 
-    public static bool ContainsAll(this string value, IReadOnlyCollection<char> characters) =>
-      value.ContainsAll(StringComparer.CurrentCulture, characters);
+    /// <summary>
+    /// Returns a value indicating whether all of the specified characters occur within this string.
+    /// </summary>
+    /// <param name="value">The current string.</param>
+    /// <param name="characters">The characters to seek.</param>
+    /// <returns><see langword="true"/> if all of the specified characters occur within the string; otherwise, <see langword="false" />.</returns>
+    public static bool ContainsAll(this string value, params char[] characters) =>
+      value.ContainsAll(CharacterComparer.CurrentCulure, characters);
 
-    public static bool ContainsAll(this string value, StringComparer characterComparer, IReadOnlyCollection<char> characters)
+    /// <summary>
+    /// Returns a value indicating whether all of the specified characters occur within this string.
+    /// </summary>
+    /// <param name="value">The current string.</param>
+    /// <param name="characters">The characters to seek.</param>
+    /// <param name="characterComparer">The comparer used to find characters.</param>
+    /// <returns><see langword="true"/> if all of the specified characters occur within the string; otherwise, <see langword="false" />.</returns>
+    public static bool ContainsAll(this string value, CharacterComparer characterComparer, params char[] characters)
     {
       if (value.IsNullOrEmpty())
       {
         return false;
       }
 
-      throw new NotImplementedException();
+      if (characters is null)
+      {
+        throw new ArgumentNullException(nameof(characters));
+      }
+
+      if (characters.Length == 0)
+      {
+        throw new ArgumentOutOfRangeException(nameof(characters), "There must be at least one character given to seek in the string.");
+      }
+
+      return characters.All(c => value.Contains(c, characterComparer));
     }
   }
 }

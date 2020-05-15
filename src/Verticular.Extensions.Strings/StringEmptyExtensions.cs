@@ -1,9 +1,5 @@
 namespace Verticular.Extensions
 {
-#if !HAS_SPAN_OF_T
-  using System.Linq;
-#endif
-
   /// <summary>
   /// Wrapps static string apis into a uniform extension method api.
   /// </summary>

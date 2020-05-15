@@ -24,7 +24,11 @@
 .IsNotBase64String()
 
 .ContainsAny('A', 'B', 'C')
+.ContainsAny('A', 'B', 'C', CharacterComparer.InvariantCultureIgnoreCase)
 .ContainsAll('A', 'B', 'C')
+.ContainsAll('A', 'B', 'C', CharacterComparer.InvariantCultureIgnoreCase)
+
+
     </Description>
     <PackageTags>Bcl String Extensions ExtensionMethod Tools</PackageTags>
     <PackageProjectUrl>https://github.com/mhudasch/Verticular.Extensions.Strings</PackageProjectUrl>
