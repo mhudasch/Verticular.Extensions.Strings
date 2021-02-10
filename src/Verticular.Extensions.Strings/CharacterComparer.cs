@@ -27,13 +27,13 @@ namespace Verticular.Extensions
     /// Gets a <see cref="CharacterComparer" /> object that performs a case-sensitive character comparison using the comparison rules of the current culture.
     /// </summary>
     /// <returns>A new <see cref="CharacterComparer" /> object.</returns>
-    public static CharacterComparer CurrentCulure => new CultureAwareCharacterComparer(CultureInfo.CurrentCulture, false);
+    public static CharacterComparer CurrentCulture => new CultureAwareCharacterComparer(CultureInfo.CurrentCulture, false);
 
     /// <summary>
     /// Gets a <see cref="CharacterComparer" /> object that performs case-insensitive character comparisons using the comparison rules of the current culture.
     /// </summary>
     /// <returns>A new object for string comparison.</returns>
-    public static CharacterComparer CurrentCulureIgnoreCase => new CultureAwareCharacterComparer(CultureInfo.CurrentCulture, true);
+    public static CharacterComparer CurrentCultureIgnoreCase => new CultureAwareCharacterComparer(CultureInfo.CurrentCulture, true);
 
     /// <summary>
     /// Creates a <see cref="CharacterComparer" /> object that compares characters according to the rules of a specified culture.

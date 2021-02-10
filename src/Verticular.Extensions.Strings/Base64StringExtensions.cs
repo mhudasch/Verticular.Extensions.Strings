@@ -5,9 +5,6 @@ namespace Verticular.Extensions
   /// <summary>
   /// Contains utility methods that extend the <see cref="string" /> type regarding base64.
   /// </summary>
-#if NETSTANDARD
-  [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
-#endif
   public static class Base64StringExtensions
   {
     // Characters that are used in base64 strings.
@@ -75,6 +72,7 @@ namespace Verticular.Extensions
     /// <param name="value">The value to test.</param>
     /// <returns>True if the string is not base64; otherwise false.</returns>
     [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
     public static bool IsNotBase64String(this string value) => !value.IsBase64String();
   }
 }

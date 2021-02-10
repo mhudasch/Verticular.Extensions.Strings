@@ -3,9 +3,6 @@ namespace Verticular.Extensions
   /// <summary>
   /// Wrapps static string apis into a uniform extension method api.
   /// </summary>
-#if NETSTANDARD
-  [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
-#endif
   public static class StringEmptyExtensions
   {
     /// <summary>

@@ -3,21 +3,28 @@
   <PropertyGroup>
     <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>true</AppendRuntimeIdentifierToOutputPath>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
 
-    <!-- Versioning stuff -->
+    <!-- Target Framework Stuff -->
     <IncludeFullFramework Condition="'$(IncludeFullFramework)' == ''">true</IncludeFullFramework>
-    <IncludeLatestFullFramework Condition="'$(IncludeLatestFullFramework)' == ''">false</IncludeLatestFullFramework>
+    <IncludeLatestFullFramework Condition="'$(IncludeLatestFullFramework)' == ''">true</IncludeLatestFullFramework>
     <IncludeLatestCoreFramework Condition="'$(IncludeLatestCoreFramework)' == ''">false</IncludeLatestCoreFramework>
     <IncludeLatestStandardFramework Condition="'$(IncludeLatestStandardFramework)' == ''">false</IncludeLatestStandardFramework>
 
-    <!-- Ignore nullable reference type warnings because we want to test agaist null arguments -->
+    <!-- Unit tests cannot be packed -->
+    <IsPackable>false</IsPackable>
+    <!-- Ignore nullable reference type warnings because we want to test against null arguments -->
     <Nullable>disable</Nullable>
 
-    <MicrosoftTestSdkVersion>16.6.1</MicrosoftTestSdkVersion>
-    <MicrosoftTestAdapterVersion>2.1.1</MicrosoftTestAdapterVersion>
-    <MicrosoftTestFrameworkVersion>2.1.1</MicrosoftTestFrameworkVersion>
-    <CoverletCollectorVersion>1.2.1</CoverletCollectorVersion>
-    <CoverletMsBuildVersion>2.8.1</CoverletMsBuildVersion>
+    <!-- Common Test Framework Versioning -->
+    <MicrosoftTestSdkVersion Condition="'$(MicrosoftTestSdkVersion)' == ''">16.6.1</MicrosoftTestSdkVersion>
+    <MSTestAdapterVersion Condition="'$(MSTestAdapterVersion)' == ''">2.1.2</MSTestAdapterVersion>
+    <MSTestFrameworkVersion Condition="'$(MSTestFrameworkVersion)' == ''">2.1.2</MSTestFrameworkVersion>
+    <CoverletCollectorVersion Condition="'$(CoverletCollectorVersion)' == ''">1.3.0</CoverletCollectorVersion>
+    <CoverletMsBuildVersion Condition="'$(CoverletMsBuildVersion)' == ''">2.9.0</CoverletMsBuildVersion>
+    <FluentAssertionsVersion Condition="'$(FluentAssertionsVersion)' == ''">5.10.3</FluentAssertionsVersion>
   
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">

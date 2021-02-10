@@ -1,14 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="$(MSBuildThisFileDirectory)..\dir.props" />
   <PropertyGroup>
-    <TargetFrameworks>$(TargetFrameworks);netstandard2.0</TargetFrameworks>
+    <!--################## FRAMEWORK TARGETING AREA ###############-->
+    <!--::: NET45 ::: FULL FRAMEWORK -->
     <TargetFrameworks Condition="'$(IncludeFullFramework)' == 'true'">$(TargetFrameworks);net45;net451;net452</TargetFrameworks>
+    <!--::: NET46 ::: FULL FRAMEWORK -->
     <TargetFrameworks Condition="'$(IncludeFullFramework)' == 'true'">$(TargetFrameworks);net46;net461;net462</TargetFrameworks>
+    <!--::: NET47 ::: FULL FRAMEWORK -->
     <TargetFrameworks Condition="'$(IncludeFullFramework)' == 'true'">$(TargetFrameworks);net47;net471;net472</TargetFrameworks>
-    <TargetFrameworks Condition="'$(IncludeLatestFullFramework)' == 'true'">$(TargetFrameworks);net48;net50</TargetFrameworks>
-    <TargetFrameworks Condition="'$(IncludeLatestStandardFramework)' == 'true'">$(TargetFrameworks);netstandard2.1</TargetFrameworks>
-    <Configurations>$(Configurations);CI</Configurations>
-    <RootNamespace>Verticular.Extensions.Strings</RootNamespace>
+    <!--::: NET48 ::: FULL FRAMEWORK -->
+    <TargetFrameworks Condition="'$(IncludeFullFramework)' == 'true' AND '$(IncludeLatestFullFramework)' == 'true'">$(TargetFrameworks);net48</TargetFrameworks>
+
+    <!--::: STD2.0 ::: STANDARD FRAMEWORK -->
+    <TargetFrameworks>$(TargetFrameworks);netstandard2.0</TargetFrameworks>
+    <!--############### END FRAMEWORK TARGETING AREA ###############-->
+
+    <Configurations>Debug;Release;CI</Configurations>
+    <RootNamespace>Verticular.Extensions</RootNamespace>
     <ProjectGuid>{33A24170-86A2-453E-B7E2-37179F859A92}</ProjectGuid>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -35,5 +43,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <!-- append this when needed -->
+  <ItemGroup Condition="'$(SupportsSpanOfT)' == 'false'">
+    <PackageReference Include="System.Memory" Version="4.5.4" />
   </ItemGroup>
 </Project>

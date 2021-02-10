@@ -48,7 +48,6 @@
 
     <Nullable>enable</Nullable>
     <LangVersion Condition="'$(LangVersion)' == ''">latest</LangVersion>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="$([System.Text.RegularExpressions.Regex]::IsMatch($(TargetFramework), `^net(?:20|35|40|4[567][12]?|48)$`))">
@@ -63,7 +62,7 @@
     <IsNetFrameworkTarget>false</IsNetFrameworkTarget>
     <IsNetCoreTarget>false</IsNetCoreTarget>
   </PropertyGroup>
-  <PropertyGroup Condition="$([System.Text.RegularExpressions.Regex]::IsMatch($(TargetFramework), `^netcoreapp(?:1\.[01]|2\.[012]|3\.[0])$`))">
+  <PropertyGroup Condition="$([System.Text.RegularExpressions.Regex]::IsMatch($(TargetFramework), `^netcoreapp(?:1\.[01]|2\.[012]|3\.[0])$|net[5]\.0`))">
     <DefineConstants>$(DefineConstants);NETCOREAPP;NETCORE;NC</DefineConstants>
     <IsNetStandardTarget>false</IsNetStandardTarget>
     <IsNetFrameworkTarget>false</IsNetFrameworkTarget>
@@ -79,5 +78,15 @@
   <PropertyGroup Condition="'$(Configuration)' == 'CI'">
     <!-- Ignore CS1591 missing comments on public apis -->
     <NoWarn>$(NoWarn);CS1591</NoWarn>
+  </PropertyGroup>
+
+  <!--############### FEATURE DETECTION AREA ###############-->
+  <!-- Feature detect for Span<T> -->
+  <PropertyGroup>
+    <SupportsSpanOfT>false</SupportsSpanOfT>
+  </PropertyGroup>
+  <PropertyGroup Condition="$([System.Text.RegularExpressions.Regex]::IsMatch($(TargetFramework), `^netcoreapp(?:2\.[12]|3\.[0])$`))">
+    <SupportsSpanOfT>true</SupportsSpanOfT>
+    <DefineConstants>$(DefineConstants);FEATURE_SPAN_OF_T</DefineConstants>
   </PropertyGroup>
 </Project>

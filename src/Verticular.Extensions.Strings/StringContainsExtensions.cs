@@ -1,25 +1,23 @@
 namespace Verticular.Extensions
 {
   using System;
-  using System.Linq;
 
   /// <summary>
   /// Contains utility methods that extend the <see cref="string" /> type regarding string content.
   /// </summary>
-#if NETSTANDARD
-  [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
-#endif
   public static class StringContainsExtensions
   {
-
     /// <summary>
     /// Returns a value indicating whether any of the specified characters occurs within this string.
     /// </summary>
     /// <param name="value">The current string.</param>
     /// <param name="characters">The characters to seek.</param>
-    /// <returns><see langword="true"/> if any of the specified characters occurs within the string; otherwise, <see langword="false" />.</returns>
+    /// <returns>
+    /// <see langword="true" /> if <i>any</i> of the specified characters occurs within the string; otherwise,
+    /// <see langword="false" />.
+    /// </returns>
     public static bool ContainsAny(this string value, params char[] characters) =>
-      value.ContainsAny(CharacterComparer.CurrentCulure, characters);
+      value.ContainsAny(CharacterComparer.CurrentCulture, characters);
 
     /// <summary>
     /// Returns a value indicating whether any of the specified characters occurs within this string.
@@ -27,7 +25,10 @@ namespace Verticular.Extensions
     /// <param name="value">The current string.</param>
     /// <param name="characters">The characters to seek.</param>
     /// <param name="characterComparer">The comparer used to find characters.</param>
-    /// <returns><see langword="true"/> if any of the specified characters occurs within the string; otherwise, <see langword="false" />.</returns>
+    /// <returns>
+    /// <see langword="true" /> if <i>any</i> of the specified characters occurs within the string; otherwise,
+    /// <see langword="false" />.
+    /// </returns>
     public static bool ContainsAny(this string value, CharacterComparer characterComparer, params char[] characters)
     {
       if (value.IsNullOrEmpty())
@@ -40,12 +41,28 @@ namespace Verticular.Extensions
         throw new ArgumentNullException(nameof(characters));
       }
 
-      if (characters.Length == 0)
+      if (characterComparer is null)
       {
-        throw new ArgumentOutOfRangeException(nameof(characters), "There must be at least one character given to seek in the string.");
+        throw new ArgumentNullException(nameof(characterComparer));
       }
 
-      return characters.Any(c => value.Contains(c, characterComparer));
+      if (characters.Length == 0)
+      {
+        return false;
+      }
+
+      foreach (var t in characters)
+      {
+        foreach (var c in value.AsSpan())
+        {
+          if (characterComparer.Compare(c, t) == 0)
+          {
+            return true;
+          }
+        }
+      }
+
+      return false;
     }
 
     /// <summary>
@@ -53,9 +70,12 @@ namespace Verticular.Extensions
     /// </summary>
     /// <param name="value">The current string.</param>
     /// <param name="characters">The characters to seek.</param>
-    /// <returns><see langword="true"/> if all of the specified characters occur within the string; otherwise, <see langword="false" />.</returns>
+    /// <returns>
+    /// <see langword="true" /> if <i>all</i> of the specified characters occur within the string; otherwise,
+    /// <see langword="false" />.
+    /// </returns>
     public static bool ContainsAll(this string value, params char[] characters) =>
-      value.ContainsAll(CharacterComparer.CurrentCulure, characters);
+      value.ContainsAll(CharacterComparer.CurrentCulture, characters);
 
     /// <summary>
     /// Returns a value indicating whether all of the specified characters occur within this string.
@@ -63,7 +83,10 @@ namespace Verticular.Extensions
     /// <param name="value">The current string.</param>
     /// <param name="characters">The characters to seek.</param>
     /// <param name="characterComparer">The comparer used to find characters.</param>
-    /// <returns><see langword="true"/> if all of the specified characters occur within the string; otherwise, <see langword="false" />.</returns>
+    /// <returns>
+    /// <see langword="true" /> if <i>all</i> of the specified characters occur within the string; otherwise,
+    /// <see langword="false" />.
+    /// </returns>
     public static bool ContainsAll(this string value, CharacterComparer characterComparer, params char[] characters)
     {
       if (value.IsNullOrEmpty())
@@ -76,12 +99,63 @@ namespace Verticular.Extensions
         throw new ArgumentNullException(nameof(characters));
       }
 
-      if (characters.Length == 0)
+      if (characterComparer is null)
       {
-        throw new ArgumentOutOfRangeException(nameof(characters), "There must be at least one character given to seek in the string.");
+        throw new ArgumentNullException(nameof(characterComparer));
       }
 
-      return characters.All(c => value.Contains(c, characterComparer));
+      if (characters.Length == 0)
+      {
+        return false;
+      }
+
+      // implementation that avoid allocation of extra strings or char arrays
+      var lookup = new bool[characters.Length];
+      for (var i = 0; i < characters.Length; i++)
+      {
+        foreach (var c in value.AsSpan())
+        {
+          if (characterComparer.Compare(c, characters[i]) == 0)
+          {
+            lookup[i] = true;
+          }
+        }
+      }
+
+      for (var i = 0; i < characters.Length; i++)
+      {
+        if (lookup[i] == false)
+        {
+          return false;
+        }
+      }
+
+      return true;
     }
+
+    /// <summary>
+    /// Returns a value indicating whether none of the specified characters occur within this string.
+    /// </summary>
+    /// <param name="value">The current string.</param>
+    /// <param name="characters">The characters to seek.</param>
+    /// <returns>
+    /// <see langword="true" /> if <i>none</i> of the specified characters occur within the string; otherwise,
+    /// <see langword="false" />.
+    /// </returns>
+    public static bool ContainsNone(this string value, params char[] characters) =>
+      !value.ContainsAny(CharacterComparer.CurrentCulture, characters);
+
+    /// <summary>
+    /// Returns a value indicating whether none of the specified characters occur within this string.
+    /// </summary>
+    /// <param name="value">The current string.</param>
+    /// <param name="characters">The characters to seek.</param>
+    /// <param name="characterComparer">The comparer used to find characters.</param>
+    /// <returns>
+    /// <see langword="true" /> if <i>none</i> of the specified characters occur within the string; otherwise,
+    /// <see langword="false" />.
+    /// </returns>
+    public static bool ContainsNone(this string value, CharacterComparer characterComparer, params char[] characters) =>
+      !value.ContainsAny(characterComparer, characters);
   }
 }
