@@ -1,5 +1,6 @@
 namespace Verticular.Extensions
 {
+  using System;
   using System.Globalization;
 
   internal sealed class CultureAwareCharacterComparer : CharacterComparer
@@ -13,13 +14,53 @@ namespace Verticular.Extensions
       this.ignoreCase = ignoreCase;
     }
 
-    public override int Compare(char x, char y) => this.ignoreCase ? this.textInfo.ToUpper(x).CompareTo(this.textInfo.ToUpper(y)) : x.CompareTo(y);
+    public override int Compare(char? x, char? y)
+    {
+      if (x == y)
+      {
+        return 0;
+      }
 
-    public override bool Equals(char x, char y) => this.ignoreCase ? this.textInfo.ToUpper(x).Equals(this.textInfo.ToUpper(y)) : x.Equals(y);
+      if (x is null)
+      {
+        return -1;
+      }
+      var xValue = x.Value;
 
-    public override int GetHashCode(char obj) =>
-      this.ignoreCase
-        ? this.textInfo.ToUpper(obj).GetHashCode()
+      if (y is null)
+      {
+        return 1;
+      }
+      var yValue = y.Value;
+      return this.ignoreCase ? this.textInfo.ToUpper(xValue).CompareTo(this.textInfo.ToUpper(yValue)) : xValue.CompareTo(yValue);
+    }
+
+    public override bool Equals(char? x, char? y)
+    {
+      if (x == y)
+      {
+        return true;
+      }
+
+      if (x is null || y is null)
+      {
+        return false;
+      }
+      var xValue = x.Value;
+      var yValue = y.Value;
+      return this.ignoreCase ? this.textInfo.ToUpper(xValue).Equals(this.textInfo.ToUpper(yValue)) : xValue.Equals(yValue);
+    }
+
+    public override int GetHashCode(char? obj)
+    {
+      if (obj is null)
+      {
+        throw new ArgumentNullException(nameof(obj));
+      }
+
+      return this.ignoreCase
+        ? this.textInfo.ToUpper(obj.Value).GetHashCode()
         : obj.GetHashCode();
+    }
   }
 }

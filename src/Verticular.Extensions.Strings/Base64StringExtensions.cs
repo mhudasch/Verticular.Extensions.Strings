@@ -30,7 +30,7 @@ namespace Verticular.Extensions
       // If it is not you can return false. Quite effective
       // Further, if it meets the above criteria, then test for spaces.
       // If it contains spaces, it is not base64
-      if (value.IsNullOrWhiteSpace() || value.Length % 4 != 0)
+      if (value is null || value.Length == 0 || value.Length % 4 != 0)
       {
         return false;
       }

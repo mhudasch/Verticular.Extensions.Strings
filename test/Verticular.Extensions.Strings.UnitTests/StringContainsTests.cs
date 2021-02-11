@@ -56,7 +56,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       Action act = () => value.ContainsAny(search);
 
       // Assert
-      act.Should().Throw<ArgumentNullException>();
+      act.Should().ThrowExactly<ArgumentNullException>();
     }
 
     [TestMethod]
@@ -76,20 +76,20 @@ namespace Verticular.Extensions.Strings.UnitTests
     }
 
     [TestMethod]
-    public void ContainsAnyNullComparer()
+    public void ContainsAnyInvalidComparer()
     {
       // Arrange
       var search = new char[]
       {
       };
       const string value = "Some text";
-      var comparer = (CharacterComparer)null;
+      var comparer = (CharacterComparison)42;
 
       // Act
       Action act = () => value.ContainsAny(comparer, search);
 
       // Assert
-      act.Should().Throw<ArgumentNullException>();
+      act.Should().ThrowExactly<ArgumentException>();
     }
 
     [TestMethod]
@@ -103,7 +103,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       const string value = "My cat eats fish.";
 
       // Act
-      var containsAny = value.ContainsAny(CharacterComparer.CurrentCulture, search);
+      var containsAny = value.ContainsAny(CharacterComparison.CurrentCulture, search);
 
       // Assert
       containsAny.Should().BeTrue();
@@ -120,7 +120,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       const string value = "My cat eats fish.";
 
       // Act
-      var containsAny = value.ContainsAny(CharacterComparer.CurrentCultureIgnoreCase, search);
+      var containsAny = value.ContainsAny(CharacterComparison.CurrentCultureIgnoreCase, search);
 
       // Assert
       containsAny.Should().BeTrue();
@@ -137,7 +137,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       const string value = "My cat eats fish.";
 
       // Act
-      var containsAny = value.ContainsAny(CharacterComparer.CurrentCulture, search);
+      var containsAny = value.ContainsAny(CharacterComparison.CurrentCulture, search);
 
       // Assert
       containsAny.Should().BeFalse();
@@ -154,7 +154,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       const string value = "My cat eats fish.";
 
       // Act
-      var containsAny = value.ContainsAny(CharacterComparer.CurrentCultureIgnoreCase, search);
+      var containsAny = value.ContainsAny(CharacterComparison.CurrentCultureIgnoreCase, search);
 
       // Assert
       containsAny.Should().BeFalse();
@@ -205,24 +205,24 @@ namespace Verticular.Extensions.Strings.UnitTests
       Action act = () => value.ContainsAll(search);
 
       // Assert
-      act.Should().Throw<ArgumentNullException>();
+      act.Should().ThrowExactly<ArgumentNullException>();
     }
 
     [TestMethod]
-    public void ContainsAllNullComparer()
+    public void ContainsAllInvalidComparer()
     {
       // Arrange
       var search = new char[]
       {
       };
       const string value = "Some text";
-      var comparer = (CharacterComparer)null;
+      var comparer = (CharacterComparison)42;
 
       // Act
       Action act = () => value.ContainsAll(comparer, search);
 
       // Assert
-      act.Should().Throw<ArgumentNullException>();
+      act.Should().ThrowExactly<ArgumentException>();
     }
 
     [TestMethod]
@@ -252,7 +252,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       const string value = "My cat eats fish.";
 
       // Act
-      var containsAll = value.ContainsAll(CharacterComparer.CurrentCulture, search);
+      var containsAll = value.ContainsAll(CharacterComparison.CurrentCulture, search);
 
       // Assert
       containsAll.Should().BeTrue();
@@ -269,7 +269,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       const string value = "My cat eats fish.";
 
       // Act
-      var containsAll = value.ContainsAll(CharacterComparer.CurrentCultureIgnoreCase, search);
+      var containsAll = value.ContainsAll(CharacterComparison.CurrentCultureIgnoreCase, search);
 
       // Assert
       containsAll.Should().BeTrue();
@@ -286,7 +286,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       const string value = "My cat eats fish.";
 
       // Act
-      var containsAll = value.ContainsAll(CharacterComparer.CurrentCulture, search);
+      var containsAll = value.ContainsAll(CharacterComparison.CurrentCulture, search);
 
       // Assert
       containsAll.Should().BeFalse();
@@ -303,7 +303,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       const string value = "My cat eats fish.";
 
       // Act
-      var containsAll = value.ContainsAll(CharacterComparer.CurrentCultureIgnoreCase, search);
+      var containsAll = value.ContainsAll(CharacterComparison.CurrentCultureIgnoreCase, search);
 
       // Assert
       containsAll.Should().BeFalse();
@@ -355,7 +355,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       Action act = () => value.ContainsNone(search);
 
       // Assert
-      act.Should().Throw<ArgumentNullException>();
+      act.Should().ThrowExactly<ArgumentNullException>();
     }
 
     [TestMethod]
@@ -375,20 +375,20 @@ namespace Verticular.Extensions.Strings.UnitTests
     }
 
     [TestMethod]
-    public void ContainsNoneNullComparer()
+    public void ContainsNoneInvalidComparer()
     {
       // Arrange
       var search = new char[]
       {
       };
       const string value = "Some text";
-      var comparer = (CharacterComparer)null;
+      var comparer = (CharacterComparison)42;
 
       // Act
       Action act = () => value.ContainsNone(comparer, search);
 
       // Assert
-      act.Should().Throw<ArgumentNullException>();
+      act.Should().ThrowExactly<ArgumentException>();
     }
 
     [TestMethod]
@@ -402,7 +402,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       const string value = "My cat eats fish.";
 
       // Act
-      var containsNone = value.ContainsNone(CharacterComparer.CurrentCulture, search);
+      var containsNone = value.ContainsNone(CharacterComparison.CurrentCulture, search);
 
       // Assert
       containsNone.Should().BeTrue();
@@ -419,7 +419,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       const string value = "My cat eats fish.";
 
       // Act
-      var containsNone = value.ContainsNone(CharacterComparer.CurrentCultureIgnoreCase, search);
+      var containsNone = value.ContainsNone(CharacterComparison.CurrentCultureIgnoreCase, search);
 
       // Assert
       containsNone.Should().BeTrue();
@@ -436,7 +436,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       const string value = "My cat eats fish.";
 
       // Act
-      var containsNone = value.ContainsNone(CharacterComparer.CurrentCulture, search);
+      var containsNone = value.ContainsNone(CharacterComparison.CurrentCulture, search);
 
       // Assert
       containsNone.Should().BeFalse();
@@ -453,7 +453,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       const string value = "My cat eats fish.";
 
       // Act
-      var containsNone = value.ContainsNone(CharacterComparer.CurrentCultureIgnoreCase, search);
+      var containsNone = value.ContainsNone(CharacterComparison.CurrentCultureIgnoreCase, search);
 
       // Assert
       containsNone.Should().BeFalse();

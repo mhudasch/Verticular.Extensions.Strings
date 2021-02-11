@@ -6,10 +6,10 @@ namespace Verticular.Extensions
   using System.Globalization;
 
   /// <summary>
-  /// Represents a character comparison operation that uses specific case and culture-based or ordinal comparison rules.
+  /// Represents a character comparison operation that uses specific case and culture-based comparison rules.
   /// </summary>
   [Serializable]
-  public abstract class CharacterComparer : IComparer, IEqualityComparer, IComparer<char>, IEqualityComparer<char>
+  public abstract class CharacterComparer : IComparer, IEqualityComparer, IComparer<char?>, IEqualityComparer<char?>
   {
     /// <summary>
     /// Gets a <see cref="CharacterComparer" /> object that performs a case-sensitive character comparison using the comparison rules of the invariant culture.
@@ -58,13 +58,13 @@ namespace Verticular.Extensions
     }
 
     /// <inheritdoc/>
-    public abstract bool Equals(char x, char y);
+    public abstract bool Equals(char? x, char? y);
 
     /// <inheritdoc/>
-    public abstract int GetHashCode(char obj);
+    public abstract int GetHashCode(char? obj);
 
     /// <inheritdoc/>
-    public abstract int Compare(char x, char y);
+    public abstract int Compare(char? x, char? y);
 
     /// <inheritdoc/>
     public new bool Equals(object x, object y)
@@ -101,12 +101,12 @@ namespace Verticular.Extensions
         return 0;
       }
 
-      if (x == null)
+      if (x is null)
       {
         return -1;
       }
 
-      if (y == null)
+      if (y is null)
       {
         return 1;
       }
@@ -126,5 +126,14 @@ namespace Verticular.Extensions
     /// Creates a new instance of the <see cref="CharacterComparer"/> class.
     /// </summary>
     protected CharacterComparer() { }
+
+    internal static CharacterComparer FromComparison(CharacterComparison comparisonType) => comparisonType switch
+    {
+      CharacterComparison.CurrentCulture => CharacterComparer.CurrentCulture,
+      CharacterComparison.CurrentCultureIgnoreCase => CharacterComparer.CurrentCultureIgnoreCase,
+      CharacterComparison.InvariantCulture => CharacterComparer.InvariantCulture,
+      CharacterComparison.InvariantCultureIgnoreCase => CharacterComparer.InvariantCultureIgnoreCase,
+      _ => throw new ArgumentException($"The given comparison type '{comparisonType}' is no valid value."),
+    };
   }
 }

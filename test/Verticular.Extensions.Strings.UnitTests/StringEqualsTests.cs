@@ -134,10 +134,10 @@ namespace Verticular.Extensions.Strings.UnitTests
 
 
       // Act
-      Action act = () => value.EqualsAny(matchSet);
+      var actual = value.EqualsAny(matchSet);
 
       // Assert
-      act.Should().Throw<ArgumentNullException>();
+      actual.Should().BeFalse();
     }
 
     [TestMethod]
@@ -152,7 +152,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       Action act = () => value.EqualsAny(matchSet);
 
       // Assert
-      act.Should().Throw<ArgumentNullException>();
+      act.Should().ThrowExactly<ArgumentNullException>();
     }
 
     [TestMethod]
@@ -170,7 +170,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       Action act = () => value.EqualsAny((StringComparison)(-12), matchSet);
 
       // Assert
-      act.Should().Throw<ArgumentException>();
+      act.Should().ThrowExactly<ArgumentException>();
     }
 
 
@@ -296,10 +296,10 @@ namespace Verticular.Extensions.Strings.UnitTests
 
 
       // Act
-      Action act = () => value.EqualsNone(matchSet);
+      var actual = value.EqualsNone(matchSet);
 
       // Assert
-      act.Should().Throw<ArgumentNullException>();
+      actual.Should().BeFalse();
     }
 
     [TestMethod]
@@ -314,7 +314,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       Action act = () => value.EqualsNone(matchSet);
 
       // Assert
-      act.Should().Throw<ArgumentNullException>();
+      act.Should().ThrowExactly<ArgumentNullException>();
     }
 
     [TestMethod]
@@ -332,7 +332,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       Action act = () => value.EqualsNone((StringComparison)(-12), matchSet);
 
       // Assert
-      act.Should().Throw<ArgumentException>();
+      act.Should().ThrowExactly<ArgumentException>();
     }
   }
 }

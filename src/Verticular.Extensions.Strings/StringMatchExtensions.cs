@@ -19,7 +19,7 @@ namespace Verticular.Extensions
     public static bool IsNumeric(this string? value)
     {
       // implementation that avoids allocations
-      if (string.IsNullOrEmpty(value))
+      if (value is null || value.Length == 0)
       {
         return false;
       }
@@ -43,7 +43,7 @@ namespace Verticular.Extensions
     public static bool IsAlphaNumeric(this string? value)
     {
       // implementation that avoids allocations
-      if (string.IsNullOrEmpty(value))
+      if (value is null || value.Length == 0)
       {
         return false;
       }
@@ -66,7 +66,7 @@ namespace Verticular.Extensions
     /// <returns><see langword="true" /> if the <see cref="string" /> is an email address.</returns>
     public static bool IsEmailAddress(this string? value)
     {
-      if (value.IsNullOrWhiteSpace())
+      if (value is null || value.Length == 0)
       {
         return false;
       }
@@ -89,7 +89,7 @@ namespace Verticular.Extensions
     /// <returns><see langword="true" /> if the <see cref="string" /> is an uri.</returns>
     public static bool IsUri(this string? value)
     {
-      if (value.IsNullOrWhiteSpace())
+      if (value is null || value.Length == 0)
       {
         return false;
       }

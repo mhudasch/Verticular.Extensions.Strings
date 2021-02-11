@@ -21,7 +21,7 @@ namespace Verticular.Extensions
     /// <exception cref="T:System.ArgumentNullException">
     /// <paramref name="value" /> is <see langword="null" />.
     /// </exception>
-    public static bool EqualsAny(this string value, params string[] matchSet) =>
+    public static bool EqualsAny(this string? value, params string[] matchSet) =>
       value.EqualsAny((IEnumerable<string>)matchSet);
 
     /// <summary>
@@ -39,7 +39,7 @@ namespace Verticular.Extensions
     /// <exception cref="T:System.ArgumentNullException">
     /// <paramref name="matchSet" /> is <see langword="null" />.
     /// </exception>
-    public static bool EqualsAny(this string value, IEnumerable<string> matchSet) =>
+    public static bool EqualsAny(this string? value, IEnumerable<string> matchSet) =>
       value.EqualsAny(StringComparison.Ordinal, matchSet);
 
     /// <summary>
@@ -58,7 +58,7 @@ namespace Verticular.Extensions
     /// <exception cref="T:System.ArgumentException">
     /// <paramref name="comparisonType" /> is not a valid <see cref="T:System.StringComparison" /> value.
     /// </exception>
-    public static bool EqualsAny(this string value, StringComparison comparisonType, params string[] matchSet) =>
+    public static bool EqualsAny(this string? value, StringComparison comparisonType, params string[] matchSet) =>
       value.EqualsAny(comparisonType, (IEnumerable<string>)matchSet);
 
     /// <summary>
@@ -71,20 +71,17 @@ namespace Verticular.Extensions
     /// <see langword="true" /> if <i>any</i> string in the given set equals the given value; otherwise
     /// <see langword="false" />.
     /// </returns>
-    /// <exception cref="T:System.ArgumentNullException">
-    /// <paramref name="value" /> is <see langword="null" />.
-    /// </exception>
     /// <exception cref="T:System.ArgumentException">
     /// <paramref name="comparisonType" /> is not a valid <see cref="T:System.StringComparison" /> value.
     /// </exception>
     /// <exception cref="T:System.ArgumentNullException">
     /// <paramref name="matchSet" /> is <see langword="null" />.
     /// </exception>
-    public static bool EqualsAny(this string value, StringComparison comparisonType, IEnumerable<string> matchSet)
+    public static bool EqualsAny(this string? value, StringComparison comparisonType, IEnumerable<string> matchSet)
     {
-      if (value is null)
+      if (value is null || value.Length == 0)
       {
-        throw new ArgumentNullException(nameof(value));
+        return false;
       }
 
       if (matchSet is null)
@@ -105,10 +102,7 @@ namespace Verticular.Extensions
     /// <see langword="true" /> if <i>no</i> string in the given set equals the given value; otherwise
     /// <see langword="false" />.
     /// </returns>
-    /// <exception cref="T:System.ArgumentNullException">
-    /// <paramref name="value" /> is <see langword="null" />.
-    /// </exception>
-    public static bool EqualsNone(this string value, params string[] matchSet) =>
+    public static bool EqualsNone(this string? value, params string[] matchSet) =>
       value.EqualsNone((IEnumerable<string>)matchSet);
 
     /// <summary>
@@ -121,12 +115,9 @@ namespace Verticular.Extensions
     /// <see langword="false" />.
     /// </returns>
     /// <exception cref="T:System.ArgumentNullException">
-    /// <paramref name="value" /> is <see langword="null" />.
-    /// </exception>
-    /// <exception cref="T:System.ArgumentNullException">
     /// <paramref name="matchSet" /> is <see langword="null" />.
     /// </exception>
-    public static bool EqualsNone(this string value, IEnumerable<string> matchSet) =>
+    public static bool EqualsNone(this string? value, IEnumerable<string> matchSet) =>
       value.EqualsNone(StringComparison.Ordinal, matchSet);
 
     /// <summary>
@@ -139,13 +130,10 @@ namespace Verticular.Extensions
     /// <see langword="true" /> if <i>no</i> string in the given set equals the given value; otherwise
     /// <see langword="false" />.
     /// </returns>
-    /// <exception cref="T:System.ArgumentNullException">
-    /// <paramref name="value" /> is <see langword="null" />.
-    /// </exception>
     /// <exception cref="T:System.ArgumentException">
     /// <paramref name="comparisonType" /> is not a valid <see cref="T:System.StringComparison" /> value.
     /// </exception>
-    public static bool EqualsNone(this string value, StringComparison comparisonType, params string[] matchSet) =>
+    public static bool EqualsNone(this string? value, StringComparison comparisonType, params string[] matchSet) =>
       value.EqualsNone(comparisonType, (IEnumerable<string>)matchSet);
 
     /// <summary>
@@ -158,16 +146,20 @@ namespace Verticular.Extensions
     /// <see langword="true" /> if <i>no</i> string in the given set equals the given value; otherwise
     /// <see langword="false" />.
     /// </returns>
-    /// <exception cref="T:System.ArgumentNullException">
-    /// <paramref name="value" /> is <see langword="null" />.
-    /// </exception>
     /// <exception cref="T:System.ArgumentException">
     /// <paramref name="comparisonType" /> is not a valid <see cref="T:System.StringComparison" /> value.
     /// </exception>
     /// <exception cref="T:System.ArgumentNullException">
     /// <paramref name="matchSet" /> is <see langword="null" />.
     /// </exception>
-    public static bool EqualsNone(this string value, StringComparison comparisonType, IEnumerable<string> matchSet) =>
-      !value.EqualsAny(comparisonType, matchSet);
+    public static bool EqualsNone(this string? value, StringComparison comparisonType, IEnumerable<string> matchSet)
+    {
+      if (value is null || value.Length == 0)
+      {
+        return false;
+      }
+       
+      return !value.EqualsAny(comparisonType, matchSet);
+    }
   }
 }
