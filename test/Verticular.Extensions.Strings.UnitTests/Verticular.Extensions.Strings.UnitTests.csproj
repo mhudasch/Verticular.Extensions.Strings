@@ -32,6 +32,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="**\*coverage*.xml" Visible="false" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="$(MicrosoftTestSdkVersion)" />
     <PackageReference Include="MSTest.TestAdapter" Version="$(MSTestAdapterVersion)" />
     <PackageReference Include="MSTest.TestFramework" Version="$(MSTestFrameworkVersion)" />
