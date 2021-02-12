@@ -2,6 +2,16 @@
 
 This repository contains the dotnet [https://docs.microsoft.com/de-de/dotnet/api/system.string](String) Extension methods that you were missing all those years.
 
+[![Build Status](https://martinhudasch.visualstudio.com/verticular.extensions.strings/_apis/build/status/mhudasch.verticular.extensions.strings)](https://martinhudasch.visualstudio.com/verticular.extensions.strings/_build/latest?definitionId=4)
+
+[![SonarMaintain](https://sonarcloud.io/api/project_badges/measure?project=mhudasch_verticular.extensions.strings&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=mhudasch_verticular.extensions.strings)
+[![SonarRely](https://sonarcloud.io/api/project_badges/measure?project=mhudasch_verticular.extensions.strings&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=mhudasch_verticular.extensions.strings)
+[![SonarSec](https://sonarcloud.io/api/project_badges/measure?project=mhudasch_verticular.extensions.strings&metric=security_rating)](https://sonarcloud.io/dashboard?id=mhudasch_verticular.extensions.strings)
+
+[![SonarLOC](https://sonarcloud.io/api/project_badges/measure?project=mhudasch_verticular.extensions.strings&metric=ncloc)](https://sonarcloud.io/dashboard?id=mhudasch_verticular.extensions.strings)
+
+<!-- [![NuGet Badge](https://buildstats.info/nuget/verticular.extensions.strings)](https://www.nuget.org/packages/verticular.extensions.strings/) -->
+
 ## Code Samples
 
 ### Null, Empty and WhiteSpace
