@@ -22,7 +22,6 @@ namespace Verticular.Extensions.Strings.UnitTests
         "Hello", "World"
       };
 
-
       // Act
       var actual = value.EqualsAny(matchSet);
 
@@ -40,7 +39,6 @@ namespace Verticular.Extensions.Strings.UnitTests
         "Hello", "World"
       };
 
-
       // Act
       var actual = value.EqualsAny(matchSet);
 
@@ -56,7 +54,6 @@ namespace Verticular.Extensions.Strings.UnitTests
       var matchSet = new string[]
       {
       };
-
 
       // Act
       var actual = value.EqualsAny(matchSet);
@@ -76,7 +73,6 @@ namespace Verticular.Extensions.Strings.UnitTests
         "World"
       };
 
-
       // Act
       var actual = value.EqualsAny(matchSet);
 
@@ -93,7 +89,6 @@ namespace Verticular.Extensions.Strings.UnitTests
       {
         "Hello", "World"
       };
-
 
       // Act
       var actual = value.EqualsAny(StringComparison.OrdinalIgnoreCase, matchSet);
@@ -113,7 +108,6 @@ namespace Verticular.Extensions.Strings.UnitTests
         "World"
       };
 
-
       // Act
       var actual = value.EqualsAny(StringComparison.OrdinalIgnoreCase, matchSet);
 
@@ -132,7 +126,6 @@ namespace Verticular.Extensions.Strings.UnitTests
         "World"
       };
 
-
       // Act
       var actual = value.EqualsAny(matchSet);
 
@@ -146,7 +139,6 @@ namespace Verticular.Extensions.Strings.UnitTests
       // Arrange
       const string value = "Hello";
       var matchSet = (string[])null;
-
 
       // Act
       Action act = () => value.EqualsAny(matchSet);
@@ -164,7 +156,6 @@ namespace Verticular.Extensions.Strings.UnitTests
       {
         "Hello", "World"
       };
-
 
       // Act
       Action act = () => value.EqualsAny((StringComparison)(-12), matchSet);
@@ -184,7 +175,6 @@ namespace Verticular.Extensions.Strings.UnitTests
         "Hello", "World"
       };
 
-
       // Act
       var actual = value.EqualsNone(matchSet);
 
@@ -202,7 +192,6 @@ namespace Verticular.Extensions.Strings.UnitTests
         "Hello", "World"
       };
 
-
       // Act
       var actual = value.EqualsNone(matchSet);
 
@@ -218,7 +207,6 @@ namespace Verticular.Extensions.Strings.UnitTests
       var matchSet = new string[]
       {
       };
-
 
       // Act
       var actual = value.EqualsNone(matchSet);
@@ -238,7 +226,6 @@ namespace Verticular.Extensions.Strings.UnitTests
         "World"
       };
 
-
       // Act
       var actual = value.EqualsNone(matchSet);
 
@@ -255,7 +242,6 @@ namespace Verticular.Extensions.Strings.UnitTests
       {
         "Hello", "World"
       };
-
 
       // Act
       var actual = value.EqualsNone(StringComparison.OrdinalIgnoreCase, matchSet);
@@ -274,7 +260,6 @@ namespace Verticular.Extensions.Strings.UnitTests
         "Hello",
         "World"
       };
-
 
       // Act
       var actual = value.EqualsNone(StringComparison.OrdinalIgnoreCase, matchSet);
@@ -309,7 +294,6 @@ namespace Verticular.Extensions.Strings.UnitTests
       const string value = "Hello";
       var matchSet = (string[])null;
 
-
       // Act
       Action act = () => value.EqualsNone(matchSet);
 
@@ -326,7 +310,6 @@ namespace Verticular.Extensions.Strings.UnitTests
       {
         "Hello", "World"
       };
-
 
       // Act
       Action act = () => value.EqualsNone((StringComparison)(-12), matchSet);

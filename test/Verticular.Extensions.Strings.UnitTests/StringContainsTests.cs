@@ -9,7 +9,7 @@ namespace Verticular.Extensions.Strings.UnitTests
   [ExcludeFromCodeCoverage]
   [TestClass]
   [TestCategory("StringExtensions/Contains")]
-  public class StringContaintsTests
+  public class StringContainsTests
   {
     [TestMethod]
     public void ContainsAnyNullString()

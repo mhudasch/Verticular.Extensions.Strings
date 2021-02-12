@@ -117,6 +117,18 @@ someString.IsAlphaNumeric()
 
 Create an issue or pull request with extensions that are missing.
 
+### Supported Frameworks
+
+Currently supported frameworks are:
+
+- [x] net45, net451, net452
+- [x] net46, net461, net462
+- [x] net47, net471, net472
+- [x] net48
+- [x] netstandard2.0
+
+The standard versions of the package can be used in any netcoreapp like netcoreapp2.1/3.1 and net5.0.
+
 ## Community
 
 This project has adopted the code of conduct defined by the [Contributor Covenant](http://contributor-covenant.org/) to clarify expected behavior in our community. For more information, see the [.NET Foundation Code of Conduct](http://www.dotnetfoundation.org/code-of-conduct).
