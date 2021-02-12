@@ -16,7 +16,7 @@ namespace Verticular.Extensions
     public static int GetWordCount(this string? text)
     {
       var wordCount = 0;
-      if (text.IsNullOrWhiteSpace())
+      if (text is null || text.Length == 0)
       {
         return wordCount;
       }

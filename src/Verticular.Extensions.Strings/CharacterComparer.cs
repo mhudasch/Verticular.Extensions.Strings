@@ -67,14 +67,14 @@ namespace Verticular.Extensions
     public abstract int Compare(char? x, char? y);
 
     /// <inheritdoc/>
-    public new bool Equals(object x, object y)
+    public new bool Equals(object? x, object? y)
     {
       if (x == y)
       {
         return true;
       }
 
-      if (x == null || y == null)
+      if (x is null || y is null)
       {
         return false;
       }
@@ -83,7 +83,7 @@ namespace Verticular.Extensions
     }
 
     /// <inheritdoc/>
-    public int GetHashCode(object obj)
+    public int GetHashCode(object? obj)
     {
       if (obj == null)
       {
@@ -94,7 +94,7 @@ namespace Verticular.Extensions
     }
 
     /// <inheritdoc/>
-    public int Compare(object x, object y)
+    public int Compare(object? x, object? y)
     {
       if (x == y)
       {
@@ -111,21 +111,13 @@ namespace Verticular.Extensions
         return 1;
       }
 
-      switch (x)
+      return x switch
       {
-        case char x1 when y is char y1:
-          return this.Compare(x1, y1);
-        case IComparable comparable:
-          return comparable.CompareTo(y);
-        default:
-          throw new ArgumentException("At least one object must implement IComparable.");
-      }
+        char x1 when y is char y1 => this.Compare(x1, y1),
+        IComparable comparable => comparable.CompareTo(y),
+        _ => throw new ArgumentException("At least one object must implement IComparable."),
+      };
     }
-
-    /// <summary>
-    /// Creates a new instance of the <see cref="CharacterComparer"/> class.
-    /// </summary>
-    protected CharacterComparer() { }
 
     internal static CharacterComparer FromComparison(CharacterComparison comparisonType) => comparisonType switch
     {

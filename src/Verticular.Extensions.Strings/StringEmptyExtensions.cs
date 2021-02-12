@@ -1,7 +1,9 @@
 namespace Verticular.Extensions
 {
+  using System;
+
   /// <summary>
-  /// Wrapps static string apis into a uniform extension method api.
+  /// Wraps static string apis into a uniform extension method api.
   /// </summary>
   public static class StringEmptyExtensions
   {
@@ -122,9 +124,9 @@ namespace Verticular.Extensions
         return false;
       }
 
-      for (var index = 0; index < value.Length; ++index)
+      foreach (var c in value.AsSpan())
       {
-        if (!char.IsWhiteSpace(value[index]))
+        if (!char.IsWhiteSpace(c))
         {
           return false;
         }

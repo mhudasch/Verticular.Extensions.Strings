@@ -22,13 +22,25 @@
 
 .IsBase64String()
 .IsNotBase64String()
+.IsEmailAddress()
+.IsUri()
+.IsNumeric()
+.IsAlphaNumeric()
 
 .ContainsAny('A', 'B', 'C')
-.ContainsAny('A', 'B', 'C', CharacterComparer.InvariantCultureIgnoreCase)
+.ContainsAny('A', 'B', 'C', CharacterComparison.InvariantCultureIgnoreCase)
 .ContainsAll('A', 'B', 'C')
-.ContainsAll('A', 'B', 'C', CharacterComparer.InvariantCultureIgnoreCase)
+.ContainsAll('A', 'B', 'C', CharacterComparison.InvariantCultureIgnoreCase)
+.ContainsNone('1', ':')
 
+.EqualsAny("Hello", "World")
+.EqualsAny("hElLo", "wOrLd", StringComparison.CurrentCultureIgnoreCase)
+.EqualsNone("hey", "hi", "hello", "ola")
 
+.Until(':')
+.UntilLast("\r\n")
+
+.GetWordCount()
     </Description>
     <PackageTags>Bcl String Extensions ExtensionMethod Tools</PackageTags>
     <PackageProjectUrl>https://github.com/mhudasch/Verticular.Extensions.Strings</PackageProjectUrl>

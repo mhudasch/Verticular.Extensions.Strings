@@ -8,7 +8,7 @@ namespace Verticular.Extensions
   public static class Base64StringExtensions
   {
     // Characters that are used in base64 strings.
-    private static readonly char[] Base64Chars =
+    private static readonly char[] base64Chars =
     {
       'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W',
       'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
@@ -23,7 +23,7 @@ namespace Verticular.Extensions
     /// </summary>
     /// <param name="value">The value to test.</param>
     /// <returns>True if the string is base64; otherwise false.</returns>
-    public static bool IsBase64String(this string value)
+    public static bool IsBase64String(this string? value)
     {
       // The quickest test. If the value is null or is equal to 0 it is not base64
       // Base64 string's length is always divisible by four, i.e. 8, 16, 20 etc.
@@ -39,13 +39,13 @@ namespace Verticular.Extensions
       var index = value.Length - 1;
 
       // if there is padding step back
-      if (value[index] == PaddingChar)
+      if (value[index] == Base64StringExtensions.PaddingChar)
       {
         index--;
       }
 
       // if there are two padding chars step back a second time
-      if (value[index] == PaddingChar)
+      if (value[index] == Base64StringExtensions.PaddingChar)
       {
         index--;
       }
@@ -56,7 +56,7 @@ namespace Verticular.Extensions
       for (var i = 0; i <= index; i++)
       {
         // If any of the character is not from the allowed list
-        if (Array.IndexOf(Base64Chars, value[i]) == -1)
+        if (Array.IndexOf(Base64StringExtensions.base64Chars, value[i]) == -1)
         {
           return false;
         }
@@ -73,6 +73,6 @@ namespace Verticular.Extensions
     /// <returns>True if the string is not base64; otherwise false.</returns>
     [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
-    public static bool IsNotBase64String(this string value) => !value.IsBase64String();
+    public static bool IsNotBase64String(this string? value) => !value.IsBase64String();
   }
 }

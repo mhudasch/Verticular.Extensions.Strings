@@ -54,7 +54,7 @@ namespace Verticular.Extensions
 
       var spannedValue = value.AsSpan();
       var spannedMatch = match.AsSpan();
-      
+
       // do not allocate only find a window of match inside value
       var matchIndex = spannedValue.IndexOf(spannedMatch, comparisonType);
       if (matchIndex < 0)
@@ -178,7 +178,7 @@ namespace Verticular.Extensions
         iterationIndex++;
       }
 
-      if(matchIndex < 0)
+      if (matchIndex < 0)
       {
         return value;
       }

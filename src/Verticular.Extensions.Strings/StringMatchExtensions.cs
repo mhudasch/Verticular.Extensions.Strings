@@ -39,7 +39,7 @@ namespace Verticular.Extensions
     /// Tests if a <see cref="string" /> only contains printable letters or numbers.
     /// </summary>
     /// <param name="value">The value to test.</param>
-    /// <returns><see langword="true" /> if the <see cref="string" /> only contains letteres or numbers.</returns>
+    /// <returns><see langword="true" /> if the <see cref="string" /> only contains letters or numbers.</returns>
     public static bool IsAlphaNumeric(this string? value)
     {
       // implementation that avoids allocations

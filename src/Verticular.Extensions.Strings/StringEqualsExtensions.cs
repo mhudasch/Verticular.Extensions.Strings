@@ -158,7 +158,7 @@ namespace Verticular.Extensions
       {
         return false;
       }
-       
+
       return !value.EqualsAny(comparisonType, matchSet);
     }
   }
