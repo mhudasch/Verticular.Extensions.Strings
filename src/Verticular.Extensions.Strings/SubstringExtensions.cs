@@ -248,5 +248,43 @@ namespace Verticular.Extensions
       // into new string
       return spannedValue.Slice(0, matchIndex).ToString();
     }
+
+    /// <summary>
+    /// Capitalizes the first character in a string instance.
+    /// </summary>
+    /// <param name="value">The value that should be capitalized.</param>
+    /// <exception cref="T:System.ArgumentNullException">
+    /// <paramref name="value" /> is <see langword="null" />.
+    /// </exception>
+    public static string Capitalize(this string? value)
+    {
+      if (value is null)
+      {
+        throw new ArgumentNullException(nameof(value));
+      }
+
+      if(value.Length == 0)
+      {
+        return value;
+      }
+
+      if(value.Length == 1)
+      {
+        return char.ToUpper(value[0]).ToString();
+      }
+
+#if NETSTANDARD_2_1
+      return string.Create(this.Data.Length, this.Data, (span, state) =>
+      {
+        span[0] = char.ToUpper(state[0]);
+        state.AsSpan().Slice(1).CopyTo(span.Slice(1));
+      });
+#else
+      Span<char> buffer = stackalloc char[value.Length];
+      value.AsSpan().CopyTo(buffer);
+      buffer[0] = char.ToUpper(buffer[0]);
+      return buffer.ToString();
+#endif
+    }
   }
 }

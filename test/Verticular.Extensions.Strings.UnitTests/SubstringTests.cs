@@ -379,6 +379,56 @@ namespace Verticular.Extensions.Strings.UnitTests
       act.Should().ThrowExactly<ArgumentException>();
     }
 
+    [TestMethod]
+    public void CapitalizeEmptyString()
+    {
+      // Arrange
+      const string value = "";
 
+      // Act
+      var capitalized = value.Capitalize();
+
+      // Assert
+      capitalized.Should().Be("");
+    }
+
+    [TestMethod]
+    public void CapitalizeOneLetterString()
+    {
+      // Arrange
+      const string value = "a";
+
+      // Act
+      var capitalized = value.Capitalize();
+
+      // Assert
+      capitalized.Should().Be("A");
+    }
+
+    [TestMethod]
+    public void CapitalizeLongerString()
+    {
+      // Arrange
+      const string value = "this is small";
+
+      // Act
+      var capitalized = value.Capitalize();
+
+      // Assert
+      capitalized.Should().Be("This is small");
+    }
+
+    [TestMethod]
+    public void CapitalizeNullString()
+    {
+      // Arrange
+      const string value = (string)null;
+
+      // Act
+      Action act = () => value.Capitalize();
+
+      // Assert
+      act.Should().ThrowExactly<ArgumentNullException>();
+    }
   }
 }

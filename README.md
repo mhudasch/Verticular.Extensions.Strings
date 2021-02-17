@@ -1,6 +1,6 @@
 # Verticular String Extensions
 
-This repository contains the dotnet [https://docs.microsoft.com/de-de/dotnet/api/system.string](String) Extension methods that you were missing all those years.
+This repository contains the dotnet [String](https://docs.microsoft.com/de-de/dotnet/api/system.string) Extension methods that you were missing all those years.
 
 [![Build Status](https://martinhudasch.visualstudio.com/verticular.extensions.strings/_apis/build/status/mhudasch.verticular.extensions.strings)](https://martinhudasch.visualstudio.com/verticular.extensions.strings/_build/latest?definitionId=4)
 
@@ -135,7 +135,7 @@ Currently supported frameworks are:
 - [x] net46, net461, net462
 - [x] net47, net471, net472
 - [x] net48
-- [x] netstandard2.0
+- [x] netstandard2.0, netstandard2.1
 
 The standard versions of the package can be used in any netcoreapp like netcoreapp2.1/3.1 and net5.0.
 

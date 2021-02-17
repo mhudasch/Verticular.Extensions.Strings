@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sln", "sln", "{3B387D52-A76
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
 		assembly.props = assembly.props
+		azure-pipelines.yml = azure-pipelines.yml
 		LICENSE.md = LICENSE.md
 		README.md = README.md
 		version.props = version.props

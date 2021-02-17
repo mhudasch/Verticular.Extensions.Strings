@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="$(MSBuildThisFileDirectory)..\dir.props" />
   <PropertyGroup>
     <!--################## FRAMEWORK TARGETING AREA ###############-->
@@ -12,7 +12,7 @@
     <TargetFrameworks Condition="'$(IncludeFullFramework)' == 'true' AND '$(IncludeLatestFullFramework)' == 'true'">$(TargetFrameworks);net48</TargetFrameworks>
 
     <!--::: STD2.0 ::: STANDARD FRAMEWORK -->
-    <TargetFrameworks>$(TargetFrameworks);netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>$(TargetFrameworks);netstandard2.0;netstandard2.1</TargetFrameworks>
     <!--############### END FRAMEWORK TARGETING AREA ###############-->
 
     <Configurations>Debug;Release;CI</Configurations>
