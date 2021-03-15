@@ -73,7 +73,7 @@ namespace Verticular.Extensions
 
       try
       {
-        var _ = new System.Net.Mail.MailAddress(value);
+        _ = new System.Net.Mail.MailAddress(value);
         return true;
       }
       catch (Exception ex) when (ex is ArgumentException || ex is FormatException)
@@ -96,7 +96,7 @@ namespace Verticular.Extensions
 
       try
       {
-        var _ = new Uri(value);
+        _ = new Uri(value);
         return true;
       }
       catch (UriFormatException)

@@ -134,7 +134,7 @@ namespace Verticular.Extensions
 
       for (var i = 0; i < characters.Length; i++)
       {
-        if (lookup[i] == false)
+        if (!lookup[i])
         {
           return false;
         }
