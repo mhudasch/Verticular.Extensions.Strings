@@ -184,7 +184,7 @@ steps:
       -s "https://api.nuget.org/v3/index.json"
       -k "$(Publish.NugetOrg.ApiKey)"
 
-task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@2
   displayName: 'push to github packages (binaries)'
   condition: and(succeeded(), eq(variables['Publish.GitHub'], 'true'), ne(variables['Publish.GitHub.ApiKey'], ''))
   inputs:
