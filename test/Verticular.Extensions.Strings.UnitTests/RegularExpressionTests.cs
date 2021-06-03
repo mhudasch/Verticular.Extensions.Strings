@@ -20,7 +20,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       const string value = null;
 
       // Act
-      var isMatch = value.Matches(pattern);
+      var isMatch = value.IsMatch(pattern);
 
       // Assert
       isMatch.Should().BeFalse();
@@ -34,7 +34,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       const string value = "";
 
       // Act
-      var isMatch = value.Matches(pattern);
+      var isMatch = value.IsMatch(pattern);
 
       // Assert
       isMatch.Should().BeFalse();
@@ -48,7 +48,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       const string value = "";
 
       // Act
-      Action act = () => value.Matches(pattern);
+      Action act = () => value.IsMatch(pattern);
 
       // Assert
       act.Should().ThrowExactly<ArgumentNullException>();
@@ -62,7 +62,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       const string value = "";
 
       // Act
-      Action act = () => value.Matches(pattern);
+      Action act = () => value.IsMatch(pattern);
 
       // Assert
 #if !NETCOREAPP3_1_OR_GREATER
@@ -81,7 +81,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       const string value = "Hello";
 
       // Act
-      var isMatch = value.Matches(pattern);
+      var isMatch = value.IsMatch(pattern);
 
       // Assert
       isMatch.Should().BeTrue();
@@ -110,7 +110,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       const string value = "HeLLo";
 
       // Act
-      var isMatch = value.Matches(pattern);
+      var isMatch = value.IsMatch(pattern);
 
       // Assert
       isMatch.Should().BeTrue();
