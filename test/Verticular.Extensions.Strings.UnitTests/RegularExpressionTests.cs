@@ -115,5 +115,47 @@ namespace Verticular.Extensions.Strings.UnitTests
       // Assert
       isMatch.Should().BeTrue();
     }
+
+    [TestMethod]
+    public void IsMatchUsingTimeout()
+    {
+      // Arrange
+      var pattern = @"(?i)^Hello$";
+      const string value = "HeLLo";
+
+      // Act
+      var isMatch = value.IsMatch(pattern, RegexOptions.None, TimeSpan.FromSeconds(1));
+
+      // Assert
+      isMatch.Should().BeTrue();
+    }
+
+    [TestMethod]
+    public void IsMatchUsingOptionsAndTimeout()
+    {
+      // Arrange
+      var pattern = @"(?i)^Hello$";
+      const string value = "HeLLo";
+
+      // Act
+      var isMatch = value.IsMatch(pattern, RegexOptions.IgnorePatternWhitespace, TimeSpan.FromSeconds(1));
+
+      // Assert
+      isMatch.Should().BeTrue();
+    }
+
+    [TestMethod]
+    public void IsMatchNullRegex()
+    {
+      // Arrange
+      var regex = (Regex)null;
+      const string value = "HeLLo";
+
+      // Act
+      Action act = () => value.IsMatch(regex);
+
+      // Assert
+      act.Should().ThrowExactly<ArgumentNullException>();
+    }
   }
 }
