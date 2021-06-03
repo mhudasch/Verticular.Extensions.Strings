@@ -124,7 +124,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       const string value = "HeLLo";
 
       // Act
-      var isMatch = value.IsMatch(pattern, RegexOptions.None, TimeSpan.FromSeconds(1));
+      var isMatch = value.IsMatch(pattern, TimeSpan.FromSeconds(1));
 
       // Assert
       isMatch.Should().BeTrue();
