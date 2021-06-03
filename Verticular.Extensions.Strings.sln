@@ -9,7 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sln", "sln", "{3B387D52-A76
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
 		assembly.props = assembly.props
-		azure-pipelines.yml = azure-pipelines.yml
 		LICENSE.md = LICENSE.md
 		README.md = README.md
 		version.props = version.props
@@ -34,6 +33,11 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Verticular.Extensions.Strings.Benchmark", "benchmark\Verticular.Extensions.Strings.Benchmark\Verticular.Extensions.Strings.Benchmark.csproj", "{146AADD8-FCA7-4E54-BC60-1F6D173F49DC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Verticular.Extensions.Strings.Benchmark.Runner", "benchmark\Verticular.Extensions.Strings.Benchmark.Runner\Verticular.Extensions.Strings.Benchmark.Runner.csproj", "{A3CA3C62-0F20-4B28-A797-88D65B6F7E71}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "azure-devops", "azure-devops", "{6B7C8F2B-CF83-4CDD-AC51-DCB38EF55BC9}"
+	ProjectSection(SolutionItems) = preProject
+		azure-pipelines.yml = azure-pipelines.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -66,6 +70,7 @@ Global
 		{A2F02328-336C-4284-B00B-EA92195F7BA5} = {3B4AA6EC-5BBC-4D5E-8F10-EF8C5D820C91}
 		{146AADD8-FCA7-4E54-BC60-1F6D173F49DC} = {3D078516-57BE-4070-992E-6B613C9B6FA6}
 		{A3CA3C62-0F20-4B28-A797-88D65B6F7E71} = {3D078516-57BE-4070-992E-6B613C9B6FA6}
+		{6B7C8F2B-CF83-4CDD-AC51-DCB38EF55BC9} = {3B387D52-A766-4ADC-9AAF-D1DA38E8A5B2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DDEFA373-3FD2-4A59-9ECD-AB4F4D7D7498}

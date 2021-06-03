@@ -51,9 +51,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     {
       // Arrange
       const string value = "hello";
-      var matchSet = new string[]
-      {
-      };
+      var matchSet = EmptyArray.OfString();
 
       // Act
       var actual = value.EqualsAny(matchSet);
@@ -204,9 +202,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     {
       // Arrange
       const string value = "hello";
-      var matchSet = new string[]
-      {
-      };
+      var matchSet = EmptyArray.OfString();
 
       // Act
       var actual = value.EqualsNone(matchSet);

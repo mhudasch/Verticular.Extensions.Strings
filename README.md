@@ -92,7 +92,8 @@ if(choice.EqualsAny("Yes", "No"))
 Or some set of strings is not allowed...
 
 ```cs
-if(comment.EqualsNone(StringComparison.CurrentCultureIgnoreCase, "Swearword1", "Swearword2", "Swearword3"))
+if(comment.EqualsNone(StringComparison.CurrentCultureIgnoreCase, 
+   "Swearword1", "Swearword2", "Swearword3"))
 {
   // allow this comment
 }
@@ -109,6 +110,32 @@ var leftPart = myString.Until("theSuffix", StringComparison.InvariantCultureIgno
 
 var fileNameWithoutExtension = path.UntilLast('.');
 var paragraph = text.UntilLast("\r\n");
+```
+
+### RegEx Match
+
+When you want to quickly check a string against a regular expression pattern use this:
+
+```cs
+if(customerNumber.IsMatch(@"^\d{4}AAA\d{3}$"))
+{
+  // do something
+}
+```
+
+This better than creating an instance of RegEx and matching against it. Of cause when you already have a static
+pre-compiled instance if a RegEx you can just replace the pattern with that like:
+
+```cs
+private static readonly RegEx CustomerNumberRegEx = new RegEx(@"^\d{4}AAA\d{3}$", 
+  RegexOptions.IgnoreCase | RegexOptions.Compiled, TimeSpan.FromSeconds(1));
+
+// some other code
+
+if(customerNumber.IsMatch(CustomerNumberRegEx))
+{
+  // do something
+}
 ```
 
 ### Often used matches

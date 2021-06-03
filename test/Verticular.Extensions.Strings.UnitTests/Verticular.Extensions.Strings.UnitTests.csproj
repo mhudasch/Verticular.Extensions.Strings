@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="$(MSBuildThisFileDirectory)..\dir.props" />
   <PropertyGroup>
     <!--################## FRAMEWORK TARGETING AREA ###############-->
@@ -18,11 +18,13 @@
     <!--::: CORE3.1 ::: CORE FRAMEWORK ::: LTS -->
     <TargetFrameworks>$(TargetFrameworks);netcoreapp3.1</TargetFrameworks>
     <!--::: CORE5.0 ::: CORE FRAMEWORK ::: -->
-    <TargetFrameworks Condition="'$(IncludeLatestCoreFramework)' == 'true'">$(TargetFrameworks);net5.0</TargetFrameworks>
+    <TargetFrameworks>$(TargetFrameworks);net5.0</TargetFrameworks>
+    <!--::: CORE5.0 ::: CORE FRAMEWORK ::: -->
+    <TargetFrameworks Condition="'$(IncludeLatestCoreFramework)' == 'true'">$(TargetFrameworks);net.6.0</TargetFrameworks>
     <!--############### END FRAMEWORK TARGETING AREA ###############-->
     
     
-    <Configurations>Debug;Release;CI</Configurations>
+    <Configurations>$(Configurations);CI</Configurations>
     <ProjectGuid>{A2F02328-336C-4284-B00B-EA92195F7BA5}</ProjectGuid>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
