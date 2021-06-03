@@ -184,6 +184,17 @@ steps:
       -s "https://api.nuget.org/v3/index.json"
       -k "$(Publish.NugetOrg.ApiKey)"
 
+task: DotNetCoreCLI@2
+  displayName: 'push to github packages (binaries)'
+  condition: and(succeeded(), eq(variables['Publish.GitHub'], 'true'), ne(variables['Publish.GitHub.ApiKey'], ''))
+  inputs:
+    command: custom
+    custom: nuget
+    arguments: >
+      push $(Build.ArtifactStagingDirectory)/**/*.nupkg
+      -s "https://nuget.pkg.github.com/mhudasch/index.json"
+      -k "$(Publish.GitHub.ApiKey)"
+
 - task: PublishBuildArtifacts@1
   displayName: 'publish build artifacts'
   inputs:

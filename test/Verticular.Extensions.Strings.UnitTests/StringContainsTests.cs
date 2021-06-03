@@ -63,9 +63,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void ContainsAnyEmptyCharacters()
     {
       // Arrange
-      var search = new char[]
-      {
-      };
+      var search = EmptyArray.OfChar();
       const string value = "Some text";
 
       // Act
@@ -79,9 +77,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void ContainsAnyInvalidComparer()
     {
       // Arrange
-      var search = new char[]
-      {
-      };
+      var search = EmptyArray.OfChar();
       const string value = "Some text";
       var comparer = (CharacterComparison)42;
 
@@ -212,9 +208,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void ContainsAllInvalidComparer()
     {
       // Arrange
-      var search = new char[]
-      {
-      };
+      var search = EmptyArray.OfChar();
       const string value = "Some text";
       var comparer = (CharacterComparison)42;
 
@@ -229,9 +223,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void ContainsAllEmptyCharacters()
     {
       // Arrange
-      var search = new char[]
-      {
-      };
+      var search = EmptyArray.OfChar();
       const string value = "Some text";
 
       // Act
@@ -362,9 +354,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void ContainsNoneEmptyCharacters()
     {
       // Arrange
-      var search = new char[]
-      {
-      };
+      var search = EmptyArray.OfChar();
       const string value = "Some text";
 
       // Act
@@ -378,9 +368,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void ContainsNoneInvalidComparer()
     {
       // Arrange
-      var search = new char[]
-      {
-      };
+      var search = EmptyArray.OfChar();
       const string value = "Some text";
       var comparer = (CharacterComparison)42;
 

@@ -90,6 +90,7 @@ namespace Verticular.Extensions
       }
 
       //TODO: try span of t implementation here also to avoid linq
+      // foreach(a in value) -> foreach(m in matchSet) -> foreach(letter in m) m==a ?
       return matchSet.Any(s => s.Equals(value, comparisonType));
     }
 

@@ -104,7 +104,5 @@ namespace Verticular.Extensions
         return false;
       }
     }
-
-    // TODO: add string.matches for to replace new regex.matches(pattern)
   }
 }
