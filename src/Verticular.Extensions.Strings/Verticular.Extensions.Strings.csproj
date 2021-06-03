@@ -15,7 +15,7 @@
     <TargetFrameworks>$(TargetFrameworks);netstandard2.0;netstandard2.1</TargetFrameworks>
     <!--############### END FRAMEWORK TARGETING AREA ###############-->
 
-    <Configurations>Debug;Release;CI</Configurations>
+    <Configurations>$(Configurations);CI</Configurations>
     <RootNamespace>Verticular.Extensions</RootNamespace>
     <ProjectGuid>{33A24170-86A2-453E-B7E2-37179F859A92}</ProjectGuid>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>

@@ -58,14 +58,19 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsMatchingInvalidPattern()
     {
       // Arrange
-      var pattern = @"\xT";
+      var pattern = @"\i";
       const string value = "";
 
       // Act
       Action act = () => value.IsMatch(pattern);
 
       // Assert
+#if !NETCOREAPP3_1_OR_GREATER
       act.Should().ThrowExactly<ArgumentException>();
+#else
+      // throws RegexParseException which is internal
+      act.Should().Throw<ArgumentException>();
+#endif
     }
 
     [TestMethod]

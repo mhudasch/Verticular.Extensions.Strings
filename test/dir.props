@@ -11,7 +11,7 @@
     <IncludeFullFramework Condition="'$(IncludeFullFramework)' == ''">true</IncludeFullFramework>
     <IncludeLatestFullFramework Condition="'$(IncludeLatestFullFramework)' == ''">true</IncludeLatestFullFramework>
     <IncludeLatestCoreFramework Condition="'$(IncludeLatestCoreFramework)' == ''">false</IncludeLatestCoreFramework>
-    <IncludeLatestStandardFramework Condition="'$(IncludeLatestStandardFramework)' == ''">false</IncludeLatestStandardFramework>
+    <IncludeLatestStandardFramework Condition="'$(IncludeLatestStandardFramework)' == ''">true</IncludeLatestStandardFramework>
 
     <!-- Unit tests cannot be packed -->
     <IsPackable>false</IsPackable>
