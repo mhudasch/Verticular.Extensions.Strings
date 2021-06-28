@@ -17,7 +17,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     {
       // Arrange
       var pattern = @"\d+";
-      const string value = null;
+      string value = null;
 
       // Act
       var isMatch = value.IsMatch(pattern);
@@ -31,7 +31,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     {
       // Arrange
       var pattern = @"\d+";
-      const string value = "";
+      var value = "";
 
       // Act
       var isMatch = value.IsMatch(pattern);
@@ -45,7 +45,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     {
       // Arrange
       var pattern = (string)null;
-      const string value = "";
+      var value = "";
 
       // Act
       Action act = () => value.IsMatch(pattern);
@@ -59,7 +59,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     {
       // Arrange
       var pattern = @"\i";
-      const string value = "";
+      var value = "";
 
       // Act
       Action act = () => value.IsMatch(pattern);
@@ -78,7 +78,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     {
       // Arrange
       var pattern = @"^Hello$";
-      const string value = "Hello";
+      var value = "Hello";
 
       // Act
       var isMatch = value.IsMatch(pattern);
@@ -92,7 +92,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     {
       // Arrange
       var pattern = @"^Hello$";
-      const string value = "HeLLo";
+      var value = "HeLLo";
 
       // Act
       var isMatch = value.IsMatch(pattern, RegexOptions.IgnoreCase);
@@ -107,7 +107,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     {
       // Arrange
       var pattern = @"(?i)^Hello$";
-      const string value = "HeLLo";
+      var value = "HeLLo";
 
       // Act
       var isMatch = value.IsMatch(pattern);
@@ -121,7 +121,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     {
       // Arrange
       var pattern = @"(?i)^Hello$";
-      const string value = "HeLLo";
+      var value = "HeLLo";
 
       // Act
       var isMatch = value.IsMatch(pattern, TimeSpan.FromSeconds(1));
@@ -135,7 +135,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     {
       // Arrange
       var pattern = @"(?i)^Hello$";
-      const string value = "HeLLo";
+      var value = "HeLLo";
 
       // Act
       var isMatch = value.IsMatch(pattern, RegexOptions.IgnorePatternWhitespace, TimeSpan.FromSeconds(1));
@@ -149,7 +149,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     {
       // Arrange
       var regex = (Regex)null;
-      const string value = "HeLLo";
+      var value = "HeLLo";
 
       // Act
       Action act = () => value.IsMatch(regex);

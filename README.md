@@ -150,6 +150,26 @@ someString.IsNumeric()
 someString.IsAlphaNumeric()
 ```
 
+### Counting occurrences of characters or strings
+
+Sometimes it can be helpful to count all occurrences of a specific character inside a string.
+For example if we want to know how deep a path is nested we can count the slashes like:
+
+```cs
+var folderStructureDepth = "somefolder/subfolder1/subfolder2/file.txt".CountOccurrences('/');
+```
+
+Another example can be to find duplicates in a list of otherwise unique values like:
+
+```cs
+var occurrences = "cat, dog, frog, fox, CAT".CountOccurences("Cat", StringComparison.CurrentCultureIgnoreCase);
+
+if(occurrences > 1)
+{
+  // throw some error
+}
+```
+
 ### Anything missing?
 
 Create an issue or pull request with extensions that are missing.

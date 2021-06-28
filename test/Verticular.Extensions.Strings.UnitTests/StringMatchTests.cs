@@ -15,7 +15,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsNumericNullString()
     {
       // Arrange
-      const string value = null;
+      string value = null;
 
       // Act
       var isNumeric = value.IsNumeric();
@@ -28,7 +28,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsNumericEmptyString()
     {
       // Arrange
-      const string value = "";
+      var value = "";
 
       // Act
       var isNumeric = value.IsNumeric();
@@ -41,7 +41,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsNumericWhiteSpaceString()
     {
       // Arrange
-      const string value = "   \t\n";
+      var value = "   \t\n";
 
       // Act
       var isNumeric = value.IsNumeric();
@@ -54,7 +54,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsNumericInvalidString()
     {
       // Arrange
-      const string value = "h98802-44";
+      var value = "h98802-44";
 
       // Act
       var isNumeric = value.IsNumeric();
@@ -67,7 +67,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsNumericValidString()
     {
       // Arrange
-      const string value = "000988024400";
+      var value = "000988024400";
 
       // Act
       var isNumeric = value.IsNumeric();
@@ -81,7 +81,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsAlphaNumericNullString()
     {
       // Arrange
-      const string value = null;
+      string value = null;
 
       // Act
       var isAlphaNumeric = value.IsAlphaNumeric();
@@ -94,7 +94,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsAlphaNumericEmptyString()
     {
       // Arrange
-      const string value = "";
+      var value = "";
 
       // Act
       var isAlphaNumeric = value.IsAlphaNumeric();
@@ -107,7 +107,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsAlphaNumericWhiteSpaceString()
     {
       // Arrange
-      const string value = "   \t\n";
+      var value = "   \t\n";
 
       // Act
       var isAlphaNumeric = value.IsAlphaNumeric();
@@ -120,7 +120,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsAlphaNumericInvalidString()
     {
       // Arrange
-      const string value = "h98802-44";
+      var value = "h98802-44";
 
       // Act
       var isAlphaNumeric = value.IsAlphaNumeric();
@@ -133,7 +133,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsAlphaNumericValidStringOnlyNumbers()
     {
       // Arrange
-      const string value = "000988024400";
+      var value = "000988024400";
 
       // Act
       var isAlphaNumeric = value.IsAlphaNumeric();
@@ -146,7 +146,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsAlphaNumericValidStringMixed()
     {
       // Arrange
-      const string value = "000988ACCX024400";
+      var value = "000988ACCX024400";
 
       // Act
       var isAlphaNumeric = value.IsAlphaNumeric();
@@ -161,7 +161,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsEmailAddressNullString()
     {
       // Arrange
-      const string value = null;
+      string value = null;
 
       // Act
       var isEmailAddress = value.IsEmailAddress();
@@ -174,7 +174,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsEmailAddressEmptyString()
     {
       // Arrange
-      const string value = "";
+      var value = "";
 
       // Act
       var isEmailAddress = value.IsEmailAddress();
@@ -187,7 +187,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsEmailAddressWhiteSpaceString()
     {
       // Arrange
-      const string value = "   \t\n";
+      var value = "   \t\n";
 
       // Act
       var isEmailAddress = value.IsEmailAddress();
@@ -200,7 +200,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsEmailAddressInvalidString()
     {
       // Arrange
-      const string value = "h98802-44";
+      var value = "h98802-44";
 
       // Act
       var isEmailAddress = value.IsEmailAddress();
@@ -216,7 +216,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsEmailAddressValidString()
     {
       // Arrange
-      const string value = "info@somewhere.de";
+      var value = "info@somewhere.de";
 
       // Act
       var isNumeric = value.IsEmailAddress();
@@ -231,7 +231,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsUriNullString()
     {
       // Arrange
-      const string value = null;
+      string value = null;
 
       // Act
       var isUri = value.IsUri();
@@ -244,7 +244,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsUriEmptyString()
     {
       // Arrange
-      const string value = "";
+      var value = "";
 
       // Act
       var isUri = value.IsUri();
@@ -257,7 +257,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsUriWhiteSpaceString()
     {
       // Arrange
-      const string value = "   \t\n";
+      var value = "   \t\n";
 
       // Act
       var isUri = value.IsUri();
@@ -270,7 +270,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsUriInvalidString()
     {
       // Arrange
-      const string value = "h98802-44";
+      var value = "h98802-44";
 
       // Act
       var isUri = value.IsUri();
@@ -285,7 +285,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsUriValidString()
     {
       // Arrange
-      const string value = "http://www.google.de";
+      var value = "http://www.google.de";
 
       // Act
       var isUri = value.IsUri();

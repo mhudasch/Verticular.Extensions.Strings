@@ -16,7 +16,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void EqualsAnyValidCollection()
     {
       // Arrange
-      const string value = "Hello";
+      var value = "Hello";
       var matchSet = new[]
       {
         "Hello", "World"
@@ -33,7 +33,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void EqualsAnyValidCollectionCaseSensitivity()
     {
       // Arrange
-      const string value = "hello";
+      var value = "hello";
       var matchSet = new[]
       {
         "Hello", "World"
@@ -50,7 +50,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void EqualsAnyValidEmptyCollection()
     {
       // Arrange
-      const string value = "hello";
+      var value = "hello";
       var matchSet = EmptyArray.OfString();
 
       // Act
@@ -64,7 +64,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void EqualsAnyValidList()
     {
       // Arrange
-      const string value = "Hello";
+      var value = "Hello";
       var matchSet = new List<string>
       {
         "Hello",
@@ -82,7 +82,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void EqualsAnyValidCollectionIgnoringCase()
     {
       // Arrange
-      const string value = "hello";
+      var value = "hello";
       var matchSet = new[]
       {
         "Hello", "World"
@@ -99,7 +99,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void EqualsAnyValidListIgnoringCase()
     {
       // Arrange
-      const string value = "hello";
+      var value = "hello";
       var matchSet = new List<string>
       {
         "Hello",
@@ -117,7 +117,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void EqualsAnyNullValue()
     {
       // Arrange
-      const string value = null;
+      string value = null;
       var matchSet = new List<string>
       {
         "Hello",
@@ -135,7 +135,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void EqualsAnyNullMatchSet()
     {
       // Arrange
-      const string value = "Hello";
+      var value = "Hello";
       var matchSet = (string[])null;
 
       // Act
@@ -149,7 +149,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void EqualsAnyValueUnknownComparison()
     {
       // Arrange
-      const string value = "Hello";
+      var value = "Hello";
       var matchSet = new[]
       {
         "Hello", "World"
@@ -167,7 +167,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void EqualsNoneValidCollection()
     {
       // Arrange
-      const string value = "Hello";
+      var value = "Hello";
       var matchSet = new[]
       {
         "Hello", "World"
@@ -184,7 +184,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void EqualsNoneValidCollectionCaseSensitivity()
     {
       // Arrange
-      const string value = "hello";
+      var value = "hello";
       var matchSet = new[]
       {
         "Hello", "World"
@@ -201,7 +201,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void EqualsNoneValidEmptyCollection()
     {
       // Arrange
-      const string value = "hello";
+      var value = "hello";
       var matchSet = EmptyArray.OfString();
 
       // Act
@@ -215,7 +215,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void EqualsNoneValidList()
     {
       // Arrange
-      const string value = "Hello";
+      var value = "Hello";
       var matchSet = new List<string>
       {
         "Hello",
@@ -233,7 +233,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void EqualsNoneValidCollectionIgnoringCase()
     {
       // Arrange
-      const string value = "hello";
+      var value = "hello";
       var matchSet = new[]
       {
         "Hello", "World"
@@ -250,7 +250,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void EqualsNoneValidListIgnoringCase()
     {
       // Arrange
-      const string value = "hello";
+      var value = "hello";
       var matchSet = new List<string>
       {
         "Hello",
@@ -268,7 +268,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void EqualsNoneNullValue()
     {
       // Arrange
-      const string value = null;
+      string value = null;
       var matchSet = new List<string>
       {
         "Hello",
@@ -287,7 +287,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void EqualsNoneNullMatchSet()
     {
       // Arrange
-      const string value = "Hello";
+      var value = "Hello";
       var matchSet = (string[])null;
 
       // Act
@@ -301,7 +301,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void EqualsNoneValueUnknownComparison()
     {
       // Arrange
-      const string value = "Hello";
+      var value = "Hello";
       var matchSet = new[]
       {
         "Hello", "World"
