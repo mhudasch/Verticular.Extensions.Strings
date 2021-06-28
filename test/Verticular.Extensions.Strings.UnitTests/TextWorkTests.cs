@@ -15,7 +15,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void WordCountNullString()
     {
       // Arrange
-      const string value = null;
+      string value = null;
 
       // Act
       var count = value.GetWordCount();
@@ -28,7 +28,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void WordCountEmptyString()
     {
       // Arrange
-      const string value = "";
+      var value = "";
 
       // Act
       var count = value.GetWordCount();
@@ -41,7 +41,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void WordCountWhiteSpaceString()
     {
       // Arrange
-      const string value = "  \t\n";
+      var value = "  \t\n";
 
       // Act
       var count = value.GetWordCount();

@@ -15,8 +15,8 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void UntilFirstCharCaseSensitive()
     {
       // Arrange
-      const string value = "HelloWorld";
-      const char suffix = 'l';
+      var value = "HelloWorld";
+      var suffix = 'l';
 
       // Act
       var until = value.Until(suffix);
@@ -29,8 +29,8 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void UntilFirstCharCaseSensitiveMismatch()
     {
       // Arrange
-      const string value = "HelloWorld";
-      const char suffix = 'L';
+      var value = "HelloWorld";
+      var suffix = 'L';
 
       // Act
       var until = value.Until(suffix);
@@ -43,8 +43,8 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void UntilFirstCharCaseInsensitive()
     {
       // Arrange
-      const string value = "HelloWorld";
-      const char suffix = 'L';
+      var value = "HelloWorld";
+      var suffix = 'L';
 
       // Act
       var until = value.Until(suffix, CharacterComparison.CurrentCultureIgnoreCase);
@@ -57,8 +57,8 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void UntilFirstCharCaseInsensitiveMismatch()
     {
       // Arrange
-      const string value = "HelloWorld";
-      const char suffix = 'P';
+      var value = "HelloWorld";
+      var suffix = 'P';
 
       // Act
       var until = value.Until(suffix, CharacterComparison.CurrentCultureIgnoreCase);
@@ -71,8 +71,8 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void UntilFirstStringCaseSensitive()
     {
       // Arrange
-      const string value = "HelloWorld";
-      const string suffix = "World";
+      var value = "HelloWorld";
+      var suffix = "World";
 
       // Act
       var until = value.Until(suffix);
@@ -85,8 +85,8 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void UntilFirstStringCaseSensitiveMismatch()
     {
       // Arrange
-      const string value = "HelloWorld";
-      const string suffix = "WORLD";
+      var value = "HelloWorld";
+      var suffix = "WORLD";
 
       // Act
       var until = value.Until(suffix);
@@ -99,8 +99,8 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void UntilFirstStringCaseInsensitive()
     {
       // Arrange
-      const string value = "HelloWorld";
-      const string suffix = "wORlD";
+      var value = "HelloWorld";
+      var suffix = "wORlD";
 
       // Act
       var until = value.Until(suffix, StringComparison.CurrentCultureIgnoreCase);
@@ -113,8 +113,8 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void UntilFirstStringCaseInsensitiveMismatch()
     {
       // Arrange
-      const string value = "HelloWorld";
-      const string suffix = "NOT";
+      var value = "HelloWorld";
+      var suffix = "NOT";
 
       // Act
       var until = value.Until(suffix, StringComparison.CurrentCultureIgnoreCase);
@@ -127,8 +127,8 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void UntilLastCharCaseSensitive()
     {
       // Arrange
-      const string value = "HelloWorld";
-      const char suffix = 'o';
+      var value = "HelloWorld";
+      var suffix = 'o';
 
       // Act
       var until = value.UntilLast(suffix);
@@ -141,8 +141,8 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void UntilLastCharCaseSensitiveMismatch()
     {
       // Arrange
-      const string value = "HelloWorld";
-      const char suffix = 'O';
+      var value = "HelloWorld";
+      var suffix = 'O';
 
       // Act
       var until = value.UntilLast(suffix);
@@ -155,8 +155,8 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void UntilLastCharCaseInsensitive()
     {
       // Arrange
-      const string value = "HelloWorld";
-      const char suffix = 'O';
+      var value = "HelloWorld";
+      var suffix = 'O';
 
       // Act
       var until = value.UntilLast(suffix, CharacterComparison.CurrentCultureIgnoreCase);
@@ -169,8 +169,8 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void UntilLastCharCaseInsensitiveMismatch()
     {
       // Arrange
-      const string value = "HelloWorld";
-      const char suffix = 'x';
+      var value = "HelloWorld";
+      var suffix = 'x';
 
       // Act
       var until = value.UntilLast(suffix, CharacterComparison.CurrentCultureIgnoreCase);
@@ -183,8 +183,8 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void UntilLastStringCaseSensitive()
     {
       // Arrange
-      const string value = "HelloWorld";
-      const string suffix = "l";
+      var value = "HelloWorld";
+      var suffix = "l";
 
       // Act
       var until = value.UntilLast(suffix);
@@ -197,8 +197,8 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void UntilLastStringCaseSensitiveMismatch()
     {
       // Arrange
-      const string value = "HelloWorld";
-      const string suffix = "LD";
+      var value = "HelloWorld";
+      var suffix = "LD";
 
       // Act
       var until = value.UntilLast(suffix);
@@ -211,8 +211,8 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void UntilLastStringCaseInsensitive()
     {
       // Arrange
-      const string value = "HelloWorld";
-      const string suffix = "L";
+      var value = "HelloWorld";
+      var suffix = "L";
 
       // Act
       var until = value.UntilLast(suffix, StringComparison.CurrentCultureIgnoreCase);
@@ -225,8 +225,8 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void UntilLastStringCaseInsensitiveMismatch()
     {
       // Arrange
-      const string value = "HelloWorld";
-      const string suffix = "Not";
+      var value = "HelloWorld";
+      var suffix = "Not";
 
       // Act
       var until = value.UntilLast(suffix, StringComparison.CurrentCultureIgnoreCase);
@@ -240,7 +240,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     {
       // Arrange
       var value = (string)null;
-      const string suffix = "L";
+      var suffix = "L";
 
       // Act
       Action act = () => value.Until(suffix);
@@ -253,7 +253,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void UntilFirstStringNullMatch()
     {
       // Arrange
-      const string value = "HelloWorld";
+      var value = "HelloWorld";
       var suffix = (string)null;
 
       // Act
@@ -267,8 +267,8 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void UntilFirstStringInvalidComparison()
     {
       // Arrange
-      const string value = "HelloWorld";
-      const string suffix = "l";
+      var value = "HelloWorld";
+      var suffix = "l";
       const StringComparison comparison = (StringComparison)42;
 
       // Act
@@ -283,7 +283,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     {
       // Arrange
       var value = (string)null;
-      const char suffix = 'L';
+      var suffix = 'L';
 
       // Act
       Action act = () => value.Until(suffix);
@@ -296,9 +296,9 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void UntilFirstCharInvalidComparison()
     {
       // Arrange
-      const string value = "HelloWorld";
-      const char suffix = 'l';
-      const CharacterComparison comparison = (CharacterComparison)42;
+      var value = "HelloWorld";
+      var suffix = 'l';
+      var comparison = (CharacterComparison)42;
 
       // Act
       Action act = () => value.Until(suffix, comparison);
@@ -312,7 +312,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     {
       // Arrange
       var value = (string)null;
-      const string suffix = "L";
+      var suffix = "L";
 
       // Act
       Action act = () => value.UntilLast(suffix);
@@ -325,7 +325,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void UntilLastStringNullMatch()
     {
       // Arrange
-      const string value = "HelloWorld";
+      var value = "HelloWorld";
       var suffix = (string)null;
 
       // Act
@@ -339,8 +339,8 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void UntilLastStringInvalidComparison()
     {
       // Arrange
-      const string value = "HelloWorld";
-      const string suffix = "l";
+      var value = "HelloWorld";
+      var suffix = "l";
       const StringComparison comparison = (StringComparison)42;
 
       // Act
@@ -355,7 +355,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     {
       // Arrange
       var value = (string)null;
-      const char suffix = 'L';
+      var suffix = 'L';
 
       // Act
       Action act = () => value.UntilLast(suffix);
@@ -368,9 +368,9 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void UntilLastCharInvalidComparison()
     {
       // Arrange
-      const string value = "HelloWorld";
-      const char suffix = 'l';
-      const CharacterComparison comparison = (CharacterComparison)42;
+      var value = "HelloWorld";
+      var suffix = 'l';
+      var comparison = (CharacterComparison)42;
 
       // Act
       Action act = () => value.UntilLast(suffix, comparison);
@@ -383,7 +383,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void CapitalizeEmptyString()
     {
       // Arrange
-      const string value = "";
+      var value = "";
 
       // Act
       var capitalized = value.Capitalize();
@@ -396,7 +396,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void CapitalizeOneLetterString()
     {
       // Arrange
-      const string value = "a";
+      var value = "a";
 
       // Act
       var capitalized = value.Capitalize();
@@ -409,7 +409,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void CapitalizeLongerString()
     {
       // Arrange
-      const string value = "this is small";
+      var value = "this is small";
 
       // Act
       var capitalized = value.Capitalize();
@@ -422,7 +422,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void CapitalizeNullString()
     {
       // Arrange
-      const string value = (string)null;
+      var value = (string)null;
 
       // Act
       Action act = () => value.Capitalize();

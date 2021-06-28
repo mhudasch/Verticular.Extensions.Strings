@@ -16,7 +16,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsOnlyWhiteSpaceNullCheck()
     {
       // Arrange
-      const string value = null;
+      string value = null;
 
       // Act
       var isOnlyWhiteSpace = value.IsOnlyWhiteSpace();
@@ -29,7 +29,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsOnlyWhiteSpaceEmptyCheck()
     {
       // Arrange
-      const string value = "";
+      var value = "";
 
       // Act
       var isOnlyWhiteSpace = value.IsOnlyWhiteSpace();
@@ -42,7 +42,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsOnlyWhiteSpaceInvalidString()
     {
       // Arrange
-      const string value = "  \tThis not a white space";
+      var value = "  \tThis not a white space";
 
       // Act
       var isOnlyWhiteSpace = value.IsOnlyWhiteSpace();
@@ -55,7 +55,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsOnlyWhiteSpaceValidString()
     {
       // Arrange
-      const string value = "   \t  \r";
+      var value = "   \t  \r";
 
       // Act
       var isOnlyWhiteSpace = value.IsOnlyWhiteSpace();

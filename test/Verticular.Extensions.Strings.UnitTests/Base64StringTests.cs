@@ -14,7 +14,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsBase64StringNullTest()
     {
       // Arrange
-      const string base64 = null;
+      string base64 = null;
 
       // Act
       var isBase64String = base64.IsBase64String();
@@ -27,7 +27,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsBase64StringEmptyTest()
     {
       // Arrange
-      const string base64 = "";
+      var base64 = "";
 
       // Act
       var isBase64String = base64.IsBase64String();
@@ -40,7 +40,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsBase64StringOnlyWhitespaceTest()
     {
       // Arrange
-      const string base64 = "   \t";
+      var base64 = "   \t";
 
       // Act
       var isBase64String = base64.IsBase64String();
@@ -53,7 +53,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsBase64StringWhitespaceTest()
     {
       // Arrange
-      const string base64 = "c29tZXRo    aW5nMDA=";
+      var base64 = "c29tZXRo    aW5nMDA=";
 
       // Act
       var isBase64String = base64.IsBase64String();
@@ -66,7 +66,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsBase64StringInvalidTest()
     {
       // Arrange
-      const string base64 = "INVALID";
+      var base64 = "INVALID";
 
       // Act
       var isBase64String = base64.IsBase64String();
@@ -79,7 +79,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsBase64StringInvalidCharsTest()
     {
       // Arrange
-      const string base64 = "c29tZXRoaÄ5nMDA=";
+      var base64 = "c29tZXRoaÄ5nMDA=";
 
       // Act
       var isBase64String = base64.IsBase64String();
@@ -92,7 +92,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsBase64StringValidTest()
     {
       // Arrange
-      const string base64 = "c29tZXRoaW5n";
+      var base64 = "c29tZXRoaW5n";
 
       // Act
       var isBase64String = base64.IsBase64String();
@@ -105,7 +105,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsBase64StringValidOnePaddingCharTest()
     {
       // Arrange
-      const string base64 = "c29tZXRoaW5nMDA=";
+      var base64 = "c29tZXRoaW5nMDA=";
 
       // Act
       var isBase64String = base64.IsBase64String();
@@ -118,7 +118,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void IsBase64StringValidTwoPaddingCharTest()
     {
       // Arrange
-      const string base64 = "c29tZXRoaW5nMA==";
+      var base64 = "c29tZXRoaW5nMA==";
 
       // Act
       var isBase64String = base64.IsBase64String();

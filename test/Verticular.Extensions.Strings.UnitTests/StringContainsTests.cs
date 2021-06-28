@@ -19,7 +19,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       {
         'e', 'B'
       };
-      const string value = null;
+      string value = null;
 
       // Act
       var containsAny = value.ContainsAny(search);
@@ -36,7 +36,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       {
         'e', 'B'
       };
-      const string value = "";
+      var value = "";
 
       // Act
       var containsAny = value.ContainsAny(search);
@@ -50,7 +50,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     {
       // Arrange
       var search = (char[])null;
-      const string value = "Some text";
+      var value = "Some text";
 
       // Act
       Action act = () => value.ContainsAny(search);
@@ -64,7 +64,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     {
       // Arrange
       var search = EmptyArray.OfChar();
-      const string value = "Some text";
+      var value = "Some text";
 
       // Act
       var containsAny = value.ContainsAny(search);
@@ -78,7 +78,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     {
       // Arrange
       var search = EmptyArray.OfChar();
-      const string value = "Some text";
+      var value = "Some text";
       var comparer = (CharacterComparison)42;
 
       // Act
@@ -96,7 +96,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       {
         'B', 'e'
       };
-      const string value = "My cat eats fish.";
+      var value = "My cat eats fish.";
 
       // Act
       var containsAny = value.ContainsAny(CharacterComparison.CurrentCulture, search);
@@ -113,7 +113,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       {
         'b', 'E'
       };
-      const string value = "My cat eats fish.";
+      var value = "My cat eats fish.";
 
       // Act
       var containsAny = value.ContainsAny(CharacterComparison.CurrentCultureIgnoreCase, search);
@@ -130,7 +130,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       {
         'b', 'E'
       };
-      const string value = "My cat eats fish.";
+      var value = "My cat eats fish.";
 
       // Act
       var containsAny = value.ContainsAny(CharacterComparison.CurrentCulture, search);
@@ -147,7 +147,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       {
         'x', 'X'
       };
-      const string value = "My cat eats fish.";
+      var value = "My cat eats fish.";
 
       // Act
       var containsAny = value.ContainsAny(CharacterComparison.CurrentCultureIgnoreCase, search);
@@ -164,7 +164,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       {
         'e', 'B'
       };
-      const string value = null;
+      string value = null;
 
       // Act
       var containsAll = value.ContainsAll(search);
@@ -181,7 +181,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       {
         'e', 'B'
       };
-      const string value = "";
+      var value = "";
 
       // Act
       var containsAll = value.ContainsAll(search);
@@ -195,7 +195,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     {
       // Arrange
       var search = (char[])null;
-      const string value = "Some text";
+      var value = "Some text";
 
       // Act
       Action act = () => value.ContainsAll(search);
@@ -209,7 +209,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     {
       // Arrange
       var search = EmptyArray.OfChar();
-      const string value = "Some text";
+      var value = "Some text";
       var comparer = (CharacterComparison)42;
 
       // Act
@@ -224,7 +224,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     {
       // Arrange
       var search = EmptyArray.OfChar();
-      const string value = "Some text";
+      var value = "Some text";
 
       // Act
       var containsAll = value.ContainsAll(search);
@@ -241,7 +241,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       {
         'f', 'e', 'a'
       };
-      const string value = "My cat eats fish.";
+      var value = "My cat eats fish.";
 
       // Act
       var containsAll = value.ContainsAll(CharacterComparison.CurrentCulture, search);
@@ -258,7 +258,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       {
         'F', 'e', 'A'
       };
-      const string value = "My cat eats fish.";
+      var value = "My cat eats fish.";
 
       // Act
       var containsAll = value.ContainsAll(CharacterComparison.CurrentCultureIgnoreCase, search);
@@ -275,7 +275,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       {
         'f', 'e', 'a', 'x'
       };
-      const string value = "My cat eats fish.";
+      var value = "My cat eats fish.";
 
       // Act
       var containsAll = value.ContainsAll(CharacterComparison.CurrentCulture, search);
@@ -292,7 +292,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       {
         'F', 'e', 'A', 'X'
       };
-      const string value = "My cat eats fish.";
+      var value = "My cat eats fish.";
 
       // Act
       var containsAll = value.ContainsAll(CharacterComparison.CurrentCultureIgnoreCase, search);
@@ -310,7 +310,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       {
         'e', 'B'
       };
-      const string value = null;
+      string value = null;
 
       // Act
       var containsNone = value.ContainsNone(search);
@@ -327,7 +327,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       {
         'e', 'B'
       };
-      const string value = "";
+      var value = "";
 
       // Act
       var containsNone = value.ContainsNone(search);
@@ -341,7 +341,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     {
       // Arrange
       var search = (char[])null;
-      const string value = "Some text";
+      var value = "Some text";
 
       // Act
       Action act = () => value.ContainsNone(search);
@@ -355,7 +355,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     {
       // Arrange
       var search = EmptyArray.OfChar();
-      const string value = "Some text";
+      var value = "Some text";
 
       // Act
       var containsNone = value.ContainsNone(search);
@@ -369,7 +369,7 @@ namespace Verticular.Extensions.Strings.UnitTests
     {
       // Arrange
       var search = EmptyArray.OfChar();
-      const string value = "Some text";
+      var value = "Some text";
       var comparer = (CharacterComparison)42;
 
       // Act
@@ -387,7 +387,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       {
         'm', 'E'
       };
-      const string value = "My cat eats fish.";
+      var value = "My cat eats fish.";
 
       // Act
       var containsNone = value.ContainsNone(CharacterComparison.CurrentCulture, search);
@@ -404,7 +404,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       {
         'x', 'B'
       };
-      const string value = "My cat eats fish.";
+      var value = "My cat eats fish.";
 
       // Act
       var containsNone = value.ContainsNone(CharacterComparison.CurrentCultureIgnoreCase, search);
@@ -421,7 +421,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       {
         'M', 'e'
       };
-      const string value = "My cat eats fish.";
+      var value = "My cat eats fish.";
 
       // Act
       var containsNone = value.ContainsNone(CharacterComparison.CurrentCulture, search);
@@ -438,7 +438,7 @@ namespace Verticular.Extensions.Strings.UnitTests
       {
         'm', 'E'
       };
-      const string value = "My cat eats fish.";
+      var value = "My cat eats fish.";
 
       // Act
       var containsNone = value.ContainsNone(CharacterComparison.CurrentCultureIgnoreCase, search);
