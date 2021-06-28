@@ -5,7 +5,7 @@ namespace Verticular.Extensions
   /// <summary>
   /// Contains utility methods that extend the <see cref="string" /> type regarding counting occurrences inside a string.
   /// </summary>
-  public static class CountOccurencesExtensions
+  public static class CountOccurrencesExtensions
   {
     /// <summary>
     /// Counts the occurrence of a character inside a given string instance.
@@ -62,6 +62,7 @@ namespace Verticular.Extensions
     /// </summary>
     /// <param name="value">The current string.</param>
     /// <param name="searchValue">The string to search and count.</param>
+    /// <param name="comparisonType">One of the enumeration values that specifies the rules for the string matching.</param>
     /// <returns>A positive number of occurrences or zero when the string cannot be found.</returns>
     /// <exception cref="T:System.ArgumentNullException">
     /// <paramref name="searchValue" /> is <see langword="null" />.
