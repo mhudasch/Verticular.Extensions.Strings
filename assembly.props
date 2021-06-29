@@ -27,6 +27,9 @@
 .IsNumeric()
 .IsAlphaNumeric()
 
+.IsMatch(@"^\d{4}AAA\d{3}$")
+.IsMatch(CustomerNumberRegEx)
+
 .ContainsAny('A', 'B', 'C')
 .ContainsAny('A', 'B', 'C', CharacterComparison.InvariantCultureIgnoreCase)
 .ContainsAll('A', 'B', 'C')
@@ -39,6 +42,9 @@
 
 .Until(':')
 .UntilLast("\r\n")
+
+.CountOccurrences('/')
+.CountOccurrences("cat", StringComparison.CurrentCultureIgnoreCase)
 
 .GetWordCount()
     </Description>
