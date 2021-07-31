@@ -2,7 +2,7 @@
 
 This repository contains the dotnet [String](https://docs.microsoft.com/de-de/dotnet/api/system.string) Extension methods that you were missing all those years.
 
-[![Build Status](https://martinhudasch.visualstudio.com/verticular.extensions.strings/_apis/build/status/mhudasch.verticular.extensions.strings)](https://martinhudasch.visualstudio.com/verticular.extensions.strings/_build/latest?definitionId=4)
+[![Build Status](https://martinhudasch.visualstudio.com/Verticular.Extensions.Strings/_apis/build/status/mhudasch.Verticular.Extensions.Strings?branchName=master)](https://martinhudasch.visualstudio.com/Verticular.Extensions.Strings/_build/latest?definitionId=6&branchName=master)
 
 [![SonarMaintain](https://sonarcloud.io/api/project_badges/measure?project=mhudasch_verticular.extensions.strings&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=mhudasch_verticular.extensions.strings)
 [![SonarRely](https://sonarcloud.io/api/project_badges/measure?project=mhudasch_verticular.extensions.strings&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=mhudasch_verticular.extensions.strings)
