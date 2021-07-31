@@ -43,14 +43,20 @@ namespace Verticular.Extensions
     /// </exception>
     public static string Remove(this string? value, CharacterComparison comparisonType, params char[] characters)
     {
-      if (value is null || value.Length == 0)
+      if (value is null)
       {
-        throw new ArgumentException($"'{nameof(value)}' cannot be null or empty.", nameof(value));
+        throw new ArgumentNullException(nameof(value));
       }
 
       if (characters is null)
       {
         throw new ArgumentNullException(nameof(characters));
+      }
+
+      if (value.Length == 0)
+      {
+        // cannot remove something from nothing
+        return value;
       }
 
       if (characters.Length == 0)
@@ -63,6 +69,7 @@ namespace Verticular.Extensions
       // which will be shorter when matches were found; otherwise a copy of the input value
       var targetCharacters = new char[value.Length];
       var targetCharactersIndex = 0;
+      var isMatch = false;
       // this would be maximum of O(value.Length*characters.Length)
       // this is faster than replace with empty string because of fewer allocations
       // and is faster than a indexof -> remove combination because of fewer calls and allocations
@@ -70,12 +77,19 @@ namespace Verticular.Extensions
       {
         foreach (var c in characters)
         {
-          if (comparer.Compare(c, value[i]) != 0)
+          if (comparer.Compare(c, value[i]) == 0)
           {
-            targetCharacters[targetCharactersIndex++] = value[i];
+            isMatch = true;
           }
-          // else just skip the matching character
         }
+
+        if (!isMatch)
+        {
+          targetCharacters[targetCharactersIndex++] = value[i];
+        }
+
+        // else just skip the matching character and reset
+        isMatch = false;
       }
 
       return new string(targetCharacters, 0, targetCharactersIndex);
@@ -112,14 +126,20 @@ namespace Verticular.Extensions
     /// </exception>
     public static string Remove(this string? value, StringComparison comparisonType, params string[] strings)
     {
-      if (value is null || value.Length == 0)
+      if (value is null)
       {
-        throw new ArgumentException($"'{nameof(value)}' cannot be null or empty.", nameof(value));
+        throw new ArgumentNullException(nameof(value));
       }
 
       if (strings is null)
       {
         throw new ArgumentNullException(nameof(strings));
+      }
+
+      if (value.Length == 0)
+      {
+        // cannot remove something from nothing
+        return value;
       }
 
       if (strings.Length == 0)
@@ -137,6 +157,7 @@ namespace Verticular.Extensions
           // normally I would like to use tuple<int,int> but that is not downwards compatible enough
           var slice = ((ulong)(uint)sliceIndex << Shift) | (uint)s.Length;
           uniqueSlices.Add(slice);
+          sliceIndex++;
         }
       }
 

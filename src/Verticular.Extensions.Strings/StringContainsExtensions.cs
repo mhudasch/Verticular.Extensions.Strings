@@ -47,7 +47,6 @@ namespace Verticular.Extensions
         throw new ArgumentNullException(nameof(characters));
       }
 
-
       if (characters.Length == 0)
       {
         return false;
