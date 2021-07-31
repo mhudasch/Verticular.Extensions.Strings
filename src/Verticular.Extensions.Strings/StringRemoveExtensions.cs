@@ -7,13 +7,40 @@ namespace Verticular.Extensions
   using System.Text;
 
   /// <summary>
-  /// 
+  /// Contains extension for better character or string removal from another string. 
   /// </summary>
   public static class StringRemoveExtensions
   {
+    /// <summary>
+    /// Returns a new string instance without one or multiple given characters.
+    /// </summary>
+    /// <param name="value">The current string.</param>
+    /// <param name="characters">One or multiple characters that should be removed.</param>
+    /// <returns>
+    /// A new string that is equivalent to this string except for the removed characters.
+    /// </returns>
+    /// <exception cref="T:System.ArgumentNullException">
+    /// <paramref name="characters" /> is <see langword="null" />.
+    /// </exception>
     public static string Remove(this string? value, params char[] characters) =>
       value.Remove(CharacterComparison.CurrentCulture, characters);
 
+    /// <summary>
+    /// Returns a new string instance without one or multiple given characters using a specified type of
+    /// character comparison.
+    /// </summary>
+    /// <param name="value">The current string.</param>
+    /// <param name="characters">One or multiple characters that should be removed.</param>
+    /// <param name="comparisonType">One of the enumeration values that specifies the rules for the character matching.</param>
+    /// <returns>
+    /// A new string that is equivalent to this string except for the removed characters.
+    /// </returns>
+    /// <exception cref="T:System.ArgumentNullException">
+    /// <paramref name="characters" /> is <see langword="null" />.
+    /// </exception>
+    /// <exception cref="T:System.ArgumentException">
+    /// <paramref name="comparisonType" /> is not a valid <see cref="CharacterComparison" /> value.
+    /// </exception>
     public static string Remove(this string? value, CharacterComparison comparisonType, params char[] characters)
     {
       if (value is null || value.Length == 0)
@@ -54,9 +81,35 @@ namespace Verticular.Extensions
       return new string(targetCharacters, 0, targetCharactersIndex);
     }
 
+    /// <summary>
+    /// Finds all given strings inside this string and removes them.
+    /// </summary>
+    /// <param name="value">The current string.</param>
+    /// <param name="strings">One ore multiple strings that should be removed from this string.</param>
+    /// <returns>
+    /// A new string instance without the given strings in it.
+    /// </returns>
+    /// <exception cref="T:System.ArgumentNullException">
+    /// <paramref name="strings" /> is <see langword="null" />.
+    /// </exception>
     public static string Remove(this string? value, params string[] strings) =>
       value.Remove(StringComparison.CurrentCulture, strings);
 
+    /// <summary>
+    /// Finds all given strings inside this string using a specified type of comparison and removes them.
+    /// </summary>
+    /// <param name="value">The current string.</param>
+    /// <param name="strings">One ore multiple strings that should be removed from this string.</param>
+    /// <param name="comparisonType">One of the enumeration values that specifies the rules for the string matching.</param>
+    /// <returns>
+    /// A new string instance without the given strings in it.
+    /// </returns>
+    /// <exception cref="T:System.ArgumentNullException">
+    /// <paramref name="strings" /> is <see langword="null" />.
+    /// </exception>
+    /// <exception cref="T:System.ArgumentException">
+    /// <paramref name="comparisonType" /> is not a valid <see cref="T:System.StringComparison" /> value.
+    /// </exception>
     public static string Remove(this string? value, StringComparison comparisonType, params string[] strings)
     {
       if (value is null || value.Length == 0)
