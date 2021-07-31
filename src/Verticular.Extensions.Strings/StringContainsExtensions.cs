@@ -68,6 +68,62 @@ namespace Verticular.Extensions
     }
 
     /// <summary>
+    /// Returns a value indicating whether any of the specified strings occurs within this string.
+    /// </summary>
+    /// <param name="value">The current string.</param>
+    /// <param name="strings">The characters to seek.</param>
+    /// <returns>
+    /// <see langword="true" /> if <i>any</i> of the specified strings occurs within the string; otherwise,
+    /// <see langword="false" />.
+    /// </returns>
+    public static bool ContainsAny(this string? value, params string[] strings) =>
+      value.ContainsAny(StringComparison.CurrentCulture, strings);
+
+    /// <summary>
+    /// Returns a value indicating whether any of the specified strings occurs within this string.
+    /// </summary>
+    /// <param name="value">The current string.</param>
+    /// <param name="strings">The strings to seek.</param>
+    /// <param name="comparisonType">One of the enumeration values that specifies the rules for the string matching.</param>
+    /// <returns>
+    /// <see langword="true" /> if <i>any</i> of the specified characters occurs within the string; otherwise,
+    /// <see langword="false" />.
+    /// </returns>
+    /// <exception cref="T:System.ArgumentNullException">
+    /// <paramref name="strings" /> is <see langword="null" />.
+    /// </exception>
+    /// <exception cref="T:System.ArgumentException">
+    /// <paramref name="comparisonType" /> is not a valid <see cref="T:System.StringComparison" /> value.
+    /// </exception>
+    public static bool ContainsAny(this string? value, StringComparison comparisonType, params string[] strings)
+    {
+      if (value is null)
+      {
+        return false;
+      }
+
+      if (strings is null)
+      {
+        throw new ArgumentNullException(nameof(strings));
+      }
+
+      if (strings.Length == 0)
+      {
+        return false;
+      }
+
+      foreach (var t in strings)
+      {
+        if (value.IndexOf(t, comparisonType) > -1)
+        {
+          return true;
+        }
+      }
+
+      return false;
+    }
+
+    /// <summary>
     /// Returns a value indicating whether all of the specified characters occur within this string.
     /// </summary>
     /// <param name="value">The current string.</param>
@@ -142,97 +198,6 @@ namespace Verticular.Extensions
     }
 
     /// <summary>
-    /// Returns a value indicating whether none of the specified characters occur within this string.
-    /// </summary>
-    /// <param name="value">The current string.</param>
-    /// <param name="characters">The characters to seek.</param>
-    /// <returns>
-    /// <see langword="true" /> if <i>none</i> of the specified characters occur within the string; otherwise,
-    /// <see langword="false" />.
-    /// </returns>
-    /// <exception cref="T:System.ArgumentNullException">
-    /// <paramref name="characters" /> is <see langword="null" />.
-    /// </exception>
-    public static bool ContainsNone(this string? value, params char[] characters) =>
-      !value.ContainsAny(CharacterComparison.CurrentCulture, characters);
-
-    /// <summary>
-    /// Returns a value indicating whether none of the specified characters occur within this string.
-    /// </summary>
-    /// <param name="value">The current string.</param>
-    /// <param name="characters">The characters to seek.</param>
-    /// <param name="comparisonType">One of the enumeration values that specifies the rules for the character matching.</param>
-    /// <returns>
-    /// <see langword="true" /> if <i>none</i> of the specified characters occur within the string; otherwise,
-    /// <see langword="false" />.
-    /// </returns>
-    /// <exception cref="T:System.ArgumentNullException">
-    /// <paramref name="characters" /> is <see langword="null" />.
-    /// </exception>
-    /// <exception cref="T:System.ArgumentException">
-    /// <paramref name="comparisonType" /> is not a valid <see cref="CharacterComparison" /> value.
-    /// </exception>
-    public static bool ContainsNone(this string? value, CharacterComparison comparisonType, params char[] characters) =>
-      !value.ContainsAny(comparisonType, characters);
-
-
-    /// <summary>
-    /// Returns a value indicating whether any of the specified strings occurs within this string.
-    /// </summary>
-    /// <param name="value">The current string.</param>
-    /// <param name="strings">The characters to seek.</param>
-    /// <returns>
-    /// <see langword="true" /> if <i>any</i> of the specified strings occurs within the string; otherwise,
-    /// <see langword="false" />.
-    /// </returns>
-    public static bool ContainsAny(this string? value, params string[] strings) =>
-      value.ContainsAny(StringComparison.CurrentCulture, strings);
-
-    /// <summary>
-    /// Returns a value indicating whether any of the specified strings occurs within this string.
-    /// </summary>
-    /// <param name="value">The current string.</param>
-    /// <param name="strings">The strings to seek.</param>
-    /// <param name="comparisonType">One of the enumeration values that specifies the rules for the string matching.</param>
-    /// <returns>
-    /// <see langword="true" /> if <i>any</i> of the specified characters occurs within the string; otherwise,
-    /// <see langword="false" />.
-    /// </returns>
-    /// <exception cref="T:System.ArgumentNullException">
-    /// <paramref name="strings" /> is <see langword="null" />.
-    /// </exception>
-    /// <exception cref="T:System.ArgumentException">
-    /// <paramref name="comparisonType" /> is not a valid <see cref="T:System.StringComparison" /> value.
-    /// </exception>
-    public static bool ContainsAny(this string? value, StringComparison comparisonType, params string[] strings)
-    {
-      if (value is null)
-      {
-        return false;
-      }
-
-      if (strings is null)
-      {
-        throw new ArgumentNullException(nameof(strings));
-      }
-
-      if (strings.Length == 0)
-      {
-        return false;
-      }
-
-      foreach (var t in strings)
-      {
-        if (value.IndexOf(t, comparisonType) > -1)
-        {
-          return true;
-        }
-      }
-
-      return false;
-    }
-
-    /// <summary>
     /// Returns a value indicating whether all of the specified strings occur within this string.
     /// </summary>
     /// <param name="value">The current string.</param>
@@ -302,6 +267,40 @@ namespace Verticular.Extensions
 
       return true;
     }
+
+    /// <summary>
+    /// Returns a value indicating whether none of the specified characters occur within this string.
+    /// </summary>
+    /// <param name="value">The current string.</param>
+    /// <param name="characters">The characters to seek.</param>
+    /// <returns>
+    /// <see langword="true" /> if <i>none</i> of the specified characters occur within the string; otherwise,
+    /// <see langword="false" />.
+    /// </returns>
+    /// <exception cref="T:System.ArgumentNullException">
+    /// <paramref name="characters" /> is <see langword="null" />.
+    /// </exception>
+    public static bool ContainsNone(this string? value, params char[] characters) =>
+      !value.ContainsAny(CharacterComparison.CurrentCulture, characters);
+
+    /// <summary>
+    /// Returns a value indicating whether none of the specified characters occur within this string.
+    /// </summary>
+    /// <param name="value">The current string.</param>
+    /// <param name="characters">The characters to seek.</param>
+    /// <param name="comparisonType">One of the enumeration values that specifies the rules for the character matching.</param>
+    /// <returns>
+    /// <see langword="true" /> if <i>none</i> of the specified characters occur within the string; otherwise,
+    /// <see langword="false" />.
+    /// </returns>
+    /// <exception cref="T:System.ArgumentNullException">
+    /// <paramref name="characters" /> is <see langword="null" />.
+    /// </exception>
+    /// <exception cref="T:System.ArgumentException">
+    /// <paramref name="comparisonType" /> is not a valid <see cref="CharacterComparison" /> value.
+    /// </exception>
+    public static bool ContainsNone(this string? value, CharacterComparison comparisonType, params char[] characters) =>
+      !value.ContainsAny(comparisonType, characters);
 
     /// <summary>
     /// Returns a value indicating whether none of the specified strings occur within this string.
