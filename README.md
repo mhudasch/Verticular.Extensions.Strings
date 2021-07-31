@@ -2,7 +2,7 @@
 
 This repository contains the dotnet [String](https://docs.microsoft.com/de-de/dotnet/api/system.string) Extension methods that you were missing all those years.
 
-[![Build Status](https://martinhudasch.visualstudio.com/verticular.extensions.strings/_apis/build/status/mhudasch.verticular.extensions.strings)](https://martinhudasch.visualstudio.com/verticular.extensions.strings/_build/latest?definitionId=4)
+[![Build Status](https://martinhudasch.visualstudio.com/Verticular.Extensions.Strings/_apis/build/status/mhudasch.Verticular.Extensions.Strings?branchName=master)](https://martinhudasch.visualstudio.com/Verticular.Extensions.Strings/_build/latest?definitionId=6&branchName=master)
 
 [![SonarMaintain](https://sonarcloud.io/api/project_badges/measure?project=mhudasch_verticular.extensions.strings&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=mhudasch_verticular.extensions.strings)
 [![SonarRely](https://sonarcloud.io/api/project_badges/measure?project=mhudasch_verticular.extensions.strings&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=mhudasch_verticular.extensions.strings)
@@ -92,7 +92,8 @@ if(choice.EqualsAny("Yes", "No"))
 Or some set of strings is not allowed...
 
 ```cs
-if(comment.EqualsNone(StringComparison.CurrentCultureIgnoreCase, "Swearword1", "Swearword2", "Swearword3"))
+if(comment.EqualsNone(StringComparison.CurrentCultureIgnoreCase, 
+   "Swearword1", "Swearword2", "Swearword3"))
 {
   // allow this comment
 }
@@ -111,6 +112,32 @@ var fileNameWithoutExtension = path.UntilLast('.');
 var paragraph = text.UntilLast("\r\n");
 ```
 
+### RegEx Match
+
+When you want to quickly check a string against a regular expression pattern use this:
+
+```cs
+if(customerNumber.IsMatch(@"^\d{4}AAA\d{3}$"))
+{
+  // do something
+}
+```
+
+This better than creating an instance of RegEx and matching against it. Of cause when you already have a static
+pre-compiled instance if a RegEx you can just replace the pattern with that like:
+
+```cs
+private static readonly RegEx CustomerNumberRegEx = new RegEx(@"^\d{4}AAA\d{3}$", 
+  RegexOptions.IgnoreCase | RegexOptions.Compiled, TimeSpan.FromSeconds(1));
+
+// some other code
+
+if(customerNumber.IsMatch(CustomerNumberRegEx))
+{
+  // do something
+}
+```
+
 ### Often used matches
 
 Here are some quick-fire matches that all of used one day:
@@ -121,6 +148,26 @@ someString.IsEmailAddress()
 someString.IsUri()
 someString.IsNumeric()
 someString.IsAlphaNumeric()
+```
+
+### Counting occurrences of characters or strings
+
+Sometimes it can be helpful to count all occurrences of a specific character inside a string.
+For example if we want to know how deep a path is nested we can count the slashes like:
+
+```cs
+var folderStructureDepth = "somefolder/subfolder1/subfolder2/file.txt".CountOccurrences('/');
+```
+
+Another example can be to find duplicates in a list of otherwise unique values like:
+
+```cs
+var occurrences = "cat, dog, frog, fox, CAT".CountOccurences("Cat", StringComparison.CurrentCultureIgnoreCase);
+
+if(occurrences > 1)
+{
+  // throw some error
+}
 ```
 
 ### Anything missing?

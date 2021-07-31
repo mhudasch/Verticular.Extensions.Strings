@@ -58,14 +58,14 @@ namespace Verticular.Extensions.Strings.UnitTests
     public void ExpectedCompare(CharacterComparer comparer)
     {
       // Arrange
-      // se parameter
+      // see parameter
 
       // Act
       var bothObjectNullCompare = comparer.Compare((object)null, (object)null);
       var objectCompare = comparer.Compare((object)'h', (object)'h');
       var charCompare = comparer.Compare('h', 'h');
-      const char instance = 'h';
-      var objectReferenceCompare = comparer.Compare((object) instance, (object) instance);
+      var instance = 'h';
+      var objectReferenceCompare = comparer.Compare((object)instance, (object)instance);
       var leftObjectNullCompare = comparer.Compare(null, (object)'h');
       var leftCharNullCompare = comparer.Compare(null, 'h');
       var rightObjectNullCompare = comparer.Compare((object)'h', null);
